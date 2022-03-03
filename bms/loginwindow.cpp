@@ -20,6 +20,9 @@ void LogInWindow::on_pushButton_clicked()
     QString Password = ui->lineEdit_password->text();
     if (Username == "test" && Password == "test"){
         QMessageBox::information(this,"Login","Username and Password is correct");
+        hide();
+        mainwindow = new MainWindow(this);
+        mainwindow->show();
     }
     else {
          QMessageBox::warning(this,"Login","Username and Password is not correct");
