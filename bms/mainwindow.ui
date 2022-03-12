@@ -37,23 +37,23 @@
            <enum>QTabWidget::West</enum>
           </property>
           <property name="currentIndex">
-           <number>1</number>
+           <number>0</number>
           </property>
           <widget class="QWidget" name="tab_3">
            <attribute name="title">
             <string>Overview</string>
            </attribute>
-           <widget class="QComboBox" name="comboBox_20">
+           <widget class="QComboBox" name="ov_showblock">
             <property name="geometry">
              <rect>
               <x>40</x>
               <y>10</y>
-              <width>101</width>
+              <width>161</width>
               <height>28</height>
              </rect>
             </property>
            </widget>
-           <widget class="QLabel" name="label_27">
+           <widget class="QLabel" name="ov_date">
             <property name="geometry">
              <rect>
               <x>610</x>
@@ -69,7 +69,7 @@
              <set>Qt::AlignHCenter|Qt::AlignTop</set>
             </property>
            </widget>
-           <widget class="QLabel" name="label_28">
+           <widget class="QLabel" name="ov_professor_status">
             <property name="geometry">
              <rect>
               <x>40</x>
@@ -85,7 +85,7 @@
              <set>Qt::AlignHCenter|Qt::AlignTop</set>
             </property>
            </widget>
-           <widget class="QPushButton" name="pushButton_4">
+           <widget class="QPushButton" name="ov_view_details">
             <property name="geometry">
              <rect>
               <x>400</x>
@@ -96,32 +96,6 @@
             </property>
             <property name="text">
              <string>View Details</string>
-            </property>
-           </widget>
-           <widget class="QPushButton" name="pushButton_5">
-            <property name="geometry">
-             <rect>
-              <x>672</x>
-              <y>10</y>
-              <width>101</width>
-              <height>29</height>
-             </rect>
-            </property>
-            <property name="text">
-             <string>+ Add Block</string>
-            </property>
-           </widget>
-           <widget class="QPushButton" name="pushButton_6">
-            <property name="geometry">
-             <rect>
-              <x>812</x>
-              <y>10</y>
-              <width>101</width>
-              <height>29</height>
-             </rect>
-            </property>
-            <property name="text">
-             <string>+ Add Room</string>
             </property>
            </widget>
            <widget class="QWidget" name="layoutWidget">
@@ -137,7 +111,7 @@
              <item>
               <layout class="QVBoxLayout" name="verticalLayout_9">
                <item>
-                <widget class="QLabel" name="label_25">
+                <widget class="QLabel" name="ov_total_rooms">
                  <property name="text">
                   <string>120</string>
                  </property>
@@ -161,7 +135,7 @@
              <item>
               <layout class="QVBoxLayout" name="verticalLayout_8">
                <item>
-                <widget class="QLabel" name="label_29">
+                <widget class="QLabel" name="ov_occupied_rooms">
                  <property name="text">
                   <string>80</string>
                  </property>
@@ -185,7 +159,7 @@
              <item>
               <layout class="QVBoxLayout" name="verticalLayout_7">
                <item>
-                <widget class="QLabel" name="label_30">
+                <widget class="QLabel" name="ov_available_rooms">
                  <property name="text">
                   <string>30</string>
                  </property>
@@ -209,7 +183,7 @@
              <item>
               <layout class="QVBoxLayout" name="verticalLayout_6">
                <item>
-                <widget class="QLabel" name="label_31">
+                <widget class="QLabel" name="ov_unavailable_rooms">
                  <property name="text">
                   <string>2</string>
                  </property>
@@ -263,7 +237,7 @@
                 </widget>
                </item>
                <item>
-                <widget class="QComboBox" name="comboBox_12"/>
+                <widget class="QComboBox" name="rev_faculty"/>
                </item>
               </layout>
              </item>
@@ -277,7 +251,7 @@
                 </widget>
                </item>
                <item>
-                <widget class="QComboBox" name="comboBox_13"/>
+                <widget class="QComboBox" name="rev_room_no"/>
                </item>
               </layout>
              </item>
@@ -291,7 +265,7 @@
                 </widget>
                </item>
                <item>
-                <widget class="QComboBox" name="comboBox_14"/>
+                <widget class="QComboBox" name="rev_block_no"/>
                </item>
               </layout>
              </item>
@@ -305,7 +279,7 @@
                 </widget>
                </item>
                <item>
-                <widget class="QComboBox" name="comboBox_15"/>
+                <widget class="QComboBox" name="rev_start_time"/>
                </item>
                <item>
                 <widget class="QLabel" name="label_19">
@@ -318,7 +292,7 @@
                 </widget>
                </item>
                <item>
-                <widget class="QComboBox" name="comboBox_16"/>
+                <widget class="QComboBox" name="rev_end_time"/>
                </item>
               </layout>
              </item>
@@ -332,7 +306,7 @@
                 </widget>
                </item>
                <item>
-                <widget class="QComboBox" name="comboBox_21"/>
+                <widget class="QComboBox" name="rev_day"/>
                </item>
               </layout>
              </item>
@@ -346,7 +320,7 @@
                 </widget>
                </item>
                <item>
-                <widget class="QComboBox" name="comboBox_17"/>
+                <widget class="QComboBox" name="rev_professor"/>
                </item>
               </layout>
              </item>
@@ -384,7 +358,7 @@
                   </widget>
                  </item>
                  <item>
-                  <widget class="QComboBox" name="comboBox_6"/>
+                  <widget class="QComboBox" name="sw_from_block"/>
                  </item>
                 </layout>
                </item>
@@ -398,7 +372,7 @@
                   </widget>
                  </item>
                  <item>
-                  <widget class="QComboBox" name="comboBox_7"/>
+                  <widget class="QComboBox" name="sw_from_room"/>
                  </item>
                 </layout>
                </item>
@@ -412,12 +386,12 @@
                   </widget>
                  </item>
                  <item>
-                  <widget class="QComboBox" name="comboBox_10"/>
+                  <widget class="QComboBox" name="sw_from_day"/>
                  </item>
                 </layout>
                </item>
                <item>
-                <widget class="QLabel" name="label_10">
+                <widget class="QLabel" name="sw_from_details">
                  <property name="text">
                   <string>Details</string>
                  </property>
@@ -448,7 +422,7 @@
                   </widget>
                  </item>
                  <item>
-                  <widget class="QComboBox" name="comboBox_8"/>
+                  <widget class="QComboBox" name="sw_to_block"/>
                  </item>
                 </layout>
                </item>
@@ -462,7 +436,7 @@
                   </widget>
                  </item>
                  <item>
-                  <widget class="QComboBox" name="comboBox_9"/>
+                  <widget class="QComboBox" name="sw_to_room"/>
                  </item>
                 </layout>
                </item>
@@ -476,12 +450,12 @@
                   </widget>
                  </item>
                  <item>
-                  <widget class="QComboBox" name="comboBox_11"/>
+                  <widget class="QComboBox" name="sw_to_day"/>
                  </item>
                 </layout>
                </item>
                <item>
-                <widget class="QLabel" name="label_11">
+                <widget class="QLabel" name="sw_to_details">
                  <property name="text">
                   <string>Details</string>
                  </property>
@@ -525,7 +499,7 @@
                 </widget>
                </item>
                <item>
-                <widget class="QComboBox" name="comboBox"/>
+                <widget class="QComboBox" name="cs_block"/>
                </item>
               </layout>
              </item>
@@ -539,7 +513,7 @@
                 </widget>
                </item>
                <item>
-                <widget class="QComboBox" name="comboBox_2"/>
+                <widget class="QComboBox" name="cs_room"/>
                </item>
               </layout>
              </item>
@@ -553,7 +527,7 @@
                 </widget>
                </item>
                <item>
-                <widget class="QComboBox" name="comboBox_3"/>
+                <widget class="QComboBox" name="cs_start_time"/>
                </item>
                <item>
                 <widget class="QLabel" name="label_4">
@@ -566,7 +540,7 @@
                 </widget>
                </item>
                <item>
-                <widget class="QComboBox" name="comboBox_4"/>
+                <widget class="QComboBox" name="cs_end_time"/>
                </item>
               </layout>
              </item>
@@ -580,12 +554,12 @@
                 </widget>
                </item>
                <item>
-                <widget class="QComboBox" name="comboBox_5"/>
+                <widget class="QComboBox" name="cs_status"/>
                </item>
               </layout>
              </item>
              <item>
-              <widget class="QPushButton" name="pushButton">
+              <widget class="QPushButton" name="cs_change">
                <property name="text">
                 <string>Change</string>
                </property>
@@ -621,7 +595,7 @@
                 </widget>
                </item>
                <item>
-                <widget class="QComboBox" name="comboBox_18"/>
+                <widget class="QComboBox" name="ps_name"/>
                </item>
               </layout>
              </item>
@@ -635,12 +609,12 @@
                 </widget>
                </item>
                <item>
-                <widget class="QComboBox" name="comboBox_19"/>
+                <widget class="QComboBox" name="ps_status"/>
                </item>
               </layout>
              </item>
              <item>
-              <widget class="QPushButton" name="pushButton_3">
+              <widget class="QPushButton" name="ps_change">
                <property name="text">
                 <string>Change</string>
                </property>
