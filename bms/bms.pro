@@ -1,4 +1,4 @@
-QT       += core gui
+QT       += core gui sql
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -26,3 +26,20 @@ FORMS += \
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    resource.qrc
+
+DISTFILES += \
+    data/blocks.csv \
+    data/faculty.txt \
+    data/professor.txt \
+    data/reservations/friday.csv \
+    data/reservations/monday.csv \
+    data/reservations/saturday.csv \
+    data/reservations/sunday.csv \
+    data/reservations/sunday.db \
+    data/reservations/thursday.csv \
+    data/reservations/tuesday.csv \
+    data/reservations/wednesday.csv \
+    data/sample.txt
