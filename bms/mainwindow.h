@@ -2,6 +2,9 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QtSql>
+#include <QFile>
+#include <string>
 
 namespace Ui {
 class MainWindow;
@@ -14,6 +17,9 @@ class MainWindow : public QMainWindow
 public:
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
+
+private slots:
+    void on_reserve_button_clicked();
 
 private:
     Ui::MainWindow *ui;

@@ -1,0 +1,6 @@
+<RCC>
+    <qresource prefix="/resources">
+        <file>data/faculty.txt</file>
+        <file>data/professor.txt</file>
+    </qresource>
+</RCC>
