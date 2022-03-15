@@ -3,6 +3,7 @@
 #include <QDir>
 #include "ui_mainwindow.h"
 #include "horizontaltab.h"
+#include <QMessageBox>
 
 //check if room is available in given time : from reservations.db
 bool room_available(int a_start, int a_end, int start, int end) {
@@ -97,4 +98,142 @@ void MainWindow::on_reserve_button_clicked()
     reservationsClose();    //close the connection to reservations.db
     qDebug() << "Successfully reserved!";
 }
+
+void MainWindow::on_switch_button_clicked()
+{
+    //read all the data from the switch tab
+    QString from_block = ui->sw_from_block->currentText();
+    QString from_room = ui->from_room->text();
+    QString from_day = ui->sw_from_day->currentText();
+    QString from_stime = ui->sw_from_stime->currentText();
+    QString from_etime = ui->sw_from_etime->currentText();
+    QString to_block = ui->sw_to_block->currentText();
+    QString to_room = ui->sw_to_room->currentText();
+    QString to_day = ui->sw_to_day->currentText();
+    QString to_stime = ui->sw_to_stime->currentText();
+    QString to_etime = ui->sw_to_etime->currentText();
+    //std::string s_day = day.toUtf8().constData();
+
+//    conncecting to the database
+//    QString path_from = QDir::currentPath() + "/../bms/data/"+from_block+".db";
+//    QString path_to = QDir::currentPath() + "/../bms/data/"+to_block+".db";
+//    QSqlDatabase sw_from_path = QSqlDatabase::addDatabase("QSQLITE");
+//    QSqlDatabase sw_to_path = QSqlDatabase::addDatabase("QSQLITE");
+//    sw_from_path.setDatabaseName(path_from);
+//    sw_to_path.setDatabaseName(path_to);
+//    //QString table_name = day;
+
+//     if(!sw_from_path.open()||!sw_to_path.open())
+//     {
+//        QMessageBox::warning(this,"Warning","Failed to connect to the server !!");
+//     }
+
+     QMessageBox::StandardButton reply = QMessageBox::question(this,"Confirmation","Do you want to switch?",QMessageBox::Yes|QMessageBox::No);
+     if(reply == QMessageBox::Yes)
+     {
+         reservationsOpen();
+         QSqlQuery qry;
+         if(qry.exec("select * from '"+to_day +"' where block='"+to_block+"' and room = '"+to_room+"' and start = '"+to_stime+"' and end = '"+to_etime+"' "))
+         {
+             int count = 0;
+             while(qry.next())
+             {
+                 count++;
+             }
+
+             //checking if another class exist or not at the given time
+             if(qry.exec("select * from '"+from_day+"' where block='"+from_block+"' and room = '"+from_room+"' and start = '"+from_stime+"' and end = '"+from_etime+"' "))
+             {
+                 int _count = 0;
+                 while(qry.next())
+                 {
+                     _count++;
+                 }
+
+                 if(_count<1) //class does not exist
+                 {
+                     QMessageBox::warning(this,"Warning","Class to be switched does not exist");
+                     reservationsClose();
+                 }
+
+                  //If class to be switched exist
+                 else
+                 {
+
+                        if(count==1)   //If another class exist at the same time in the targeted block
+                        {
+                              qry.prepare("update '"+from_day+"' set block = '"+to_block+"', room = '"+to_room+"', start = '"+to_stime+"', end = '"+to_etime+"'");
+                              qry.prepare("update '"+to_day +"' set block = '"+from_block+"', room = '"+from_room+"', start = '"+from_stime+"', end = '"+from_etime+"'");
+                        }
+
+                        if(count<1)   //If another class does not exist at the same time in the targeted block
+                        {
+                              //check time validity
+                             if(room_available(from_stime.toInt(),from_etime.toInt(),to_stime.toInt(),to_etime.toInt()))
+                             {
+                                    //To insert into targeted table
+                                    if(qry.exec("insert into '"+to_day +"' select * from " + from_day + "where block='"+from_block+"' and room = '"+from_room+"' and start = '"+from_stime+"' and end = '"+from_etime+"' "))
+                                    {
+                                        //To delete from original table
+                                        if(qry.exec("delete * from "+from_day+"' where block='"+from_block+"' and room = '"+from_room+"' and start = '"+from_stime+"' and end = '"+from_etime+"' "))
+                                         {
+                                                QMessageBox::information(this,"Switched","Class has been sucessfully switched");
+                                                reservationsClose();
+                                         }
+
+                                        else
+                                        {
+                                            QMessageBox::warning(this,"Error","Could not remove the original class from the server.");
+                                            reservationsClose();
+                                        }
+                                    }
+                                }
+                         }
+
+                        else
+                        {
+                               QMessageBox::warning(this,"Class Time Error","Class Time Not Available");
+                        }
+
+
+                       if(count>1)    //Error in reading of the database
+                       {
+                            QMessageBox::warning(this,"Error","Database Error !!!");
+                            reservationsClose();
+                        }
+
+                } //end of "if class to be switched exist"
+           }
+        } //end of reply yes
+     }
+
+     else
+     {
+        QMessageBox::information(this,"Termmination","Switch process was terminated.");
+     }
+
+
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
