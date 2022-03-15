@@ -37,7 +37,7 @@
            <enum>QTabWidget::West</enum>
           </property>
           <property name="currentIndex">
-           <number>1</number>
+           <number>2</number>
           </property>
           <widget class="QWidget" name="tab_3">
            <attribute name="title">
@@ -662,7 +662,48 @@
                       </widget>
                      </item>
                      <item>
-                      <widget class="QComboBox" name="sw_from_block"/>
+                      <widget class="QComboBox" name="sw_from_block">
+                       <item>
+                        <property name="text">
+                         <string>3</string>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>6</string>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>7</string>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>8</string>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>9</string>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>10</string>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>11</string>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>12</string>
+                        </property>
+                       </item>
+                      </widget>
                      </item>
                     </layout>
                    </item>
@@ -676,7 +717,11 @@
                       </widget>
                      </item>
                      <item>
-                      <widget class="QComboBox" name="sw_from_room"/>
+                      <widget class="QLineEdit" name="from_room">
+                       <property name="alignment">
+                        <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+                       </property>
+                      </widget>
                      </item>
                     </layout>
                    </item>
@@ -695,14 +740,31 @@
                     </layout>
                    </item>
                    <item>
-                    <widget class="QLabel" name="sw_from_details">
-                     <property name="text">
-                      <string>Details</string>
-                     </property>
-                     <property name="alignment">
-                      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
-                     </property>
-                    </widget>
+                    <layout class="QHBoxLayout" name="horizontalLayout_25">
+                     <item>
+                      <widget class="QLabel" name="label_27">
+                       <property name="text">
+                        <string>Time</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QComboBox" name="sw_from_stime"/>
+                     </item>
+                     <item>
+                      <widget class="QLabel" name="label_28">
+                       <property name="text">
+                        <string>to</string>
+                       </property>
+                       <property name="alignment">
+                        <set>Qt::AlignCenter</set>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QComboBox" name="sw_from_etime"/>
+                     </item>
+                    </layout>
                    </item>
                   </layout>
                  </widget>
@@ -759,14 +821,31 @@
                     </layout>
                    </item>
                    <item>
-                    <widget class="QLabel" name="sw_to_details">
-                     <property name="text">
-                      <string>Details</string>
-                     </property>
-                     <property name="alignment">
-                      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignTop</set>
-                     </property>
-                    </widget>
+                    <layout class="QHBoxLayout" name="horizontalLayout_26">
+                     <item>
+                      <widget class="QLabel" name="label_29">
+                       <property name="text">
+                        <string>Time</string>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QComboBox" name="sw_to_stime"/>
+                     </item>
+                     <item>
+                      <widget class="QLabel" name="label_30">
+                       <property name="text">
+                        <string>to</string>
+                       </property>
+                       <property name="alignment">
+                        <set>Qt::AlignCenter</set>
+                       </property>
+                      </widget>
+                     </item>
+                     <item>
+                      <widget class="QComboBox" name="sw_to_etime"/>
+                     </item>
+                    </layout>
                    </item>
                   </layout>
                  </widget>
@@ -957,7 +1036,7 @@
      <x>0</x>
      <y>0</y>
      <width>1035</width>
-     <height>25</height>
+     <height>21</height>
     </rect>
    </property>
   </widget>
