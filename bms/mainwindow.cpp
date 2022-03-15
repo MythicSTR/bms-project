@@ -4,6 +4,14 @@
 #include "ui_mainwindow.h"
 #include "horizontaltab.h"
 
+//check if room is available in given time : from reservations.db
+bool room_available(int a_start, int a_end, int start, int end) {
+    if(a_start == start || a_end == end) return false;
+    if(start < a_start && end > a_start) return false;
+    if(start > a_start && start < a_end) return false;
+    return true;
+}
+
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -39,6 +47,7 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+//to reserve a room : reservations.db
 void MainWindow::on_reserve_button_clicked()
 {
     //read all the data from the reserve tab
@@ -55,22 +64,37 @@ void MainWindow::on_reserve_button_clicked()
     QString status = "Reserved";
     std::string s_day = day.toUtf8().constData();
 
-    //connecting to the required database
-    QString path = QDir::currentPath() + "/../bms/data/reservations.db";
-    QSqlDatabase days = QSqlDatabase::addDatabase("QSQLITE");
-    days.setDatabaseName(path);
-    QString table_name = day;
-
-    //checking if the database successfully opened or not
-    if(!days.open()) {
-        qDebug() << "Failed to open the database.";
-    }
-
-    //creating a sqlite command to execute
+    reservationsOpen();     //open and connect to reservations.db
     QSqlQuery qry;
-    qry.prepare("insert into '"+table_name+"' (block,room,start,end,status,faculty,year,semester,professor,subject) values ('"+block+"','"+room+"','"+start+"','"+end+"','"+status+"','"+faculty+"','"+year+"','"+semester+"','"+professor+"','"+subject+"')");
-    if(qry.exec()) {    //executing the command
-        qDebug() << "Written to Database";
+    qry.prepare("select start,end from '"+day+"' where block='"+block+"' and room='"+room+"'");   //prepare a query to search the reserved room from the database
+    if(qry.exec()) {
+        int check_count = 1;
+        while(qry.next()) {
+            qDebug() << "(" << check_count++ << ")" << "Checking...";
+            int a_start = qry.value(0).toInt();
+            int a_end = qry.value(1).toInt();
+            if(room_available(a_start, a_end, start.toInt(), end.toInt())) {
+                continue;
+            } else {
+                qDebug() << "Cannot Reserve! Exiting!";
+                return;
+            }
+        }
+        //if room is available
+        qry.prepare("insert into '"+day+"' (block,room,start,end,status,faculty,year,semester,professor,subject) values ('"+block+"','"+room+"','"+start+"','"+end+"','"+status+"','"+faculty+"','"+year+"','"+semester+"','"+professor+"','"+subject+"')");
+        if(qry.exec()) {
+            qDebug() << "Room available. Writing to the database.";
+        } else qDebug() << "Couldn't execute the query to book the room!";
+    } else {    //if no entry is found in the database
+        qDebug() << "No entries for the data. Creating a new entry...";
+        qry.prepare("insert into '"+day+"' (block,room,start,end,status,faculty,year,semester,professor,subject) values ('"+block+"','"+room+"','"+start+"','"+end+"','"+status+"','"+faculty+"','"+year+"','"+semester+"','"+professor+"','"+subject+"')");
+        if(qry.exec()) {
+            qDebug() << "Created a new entry to the database.";
+        } else {
+            qDebug() << "Couldn't create a new entry to the database!";
+        }
     }
+    reservationsClose();    //close the connection to reservations.db
+    qDebug() << "Successfully reserved!";
 }
 
