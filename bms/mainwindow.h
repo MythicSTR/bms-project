@@ -44,6 +44,8 @@ public:
 private slots:
     void on_reserve_button_clicked();
 
+    void on_cs_show_clicked();
+
 private:
     Ui::MainWindow *ui;
 };

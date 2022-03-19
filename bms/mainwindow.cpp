@@ -3,7 +3,7 @@
 #include <QDir>
 #include "ui_mainwindow.h"
 #include "horizontaltab.h"
-
+#include<QMessageBox>
 //check if room is available in given time : from reservations.db
 bool room_available(int a_start, int a_end, int start, int end) {
     if(a_start == start || a_end == end) return false;
@@ -97,4 +97,42 @@ void MainWindow::on_reserve_button_clicked()
     reservationsClose();    //close the connection to reservations.db
     qDebug() << "Successfully reserved!";
 }
+void MainWindow::on_cs_show_clicked()
+{
+
+    QString block = ui->cs_block->currentText();
+    QString room = ui->cs_room->text();
+    QString day = ui->cs_day->currentText();
+    QString start = ui->cs_start_time->currentText();
+    QString end = ui->cs_end_time->currentText();
+
+    bool available  = true;
+    reservationsOpen();
+    QSqlQuery qry;
+
+    qry.prepare("select start,end from '"+day+"' where block='"+block+"' and room= '"+room+"'" );
+                if(qry.exec()){
+                       int check_count =1;
+                       while (qry.next()){
+                           qDebug()<<"(" << check_count++ << ")" <<"Checking...";
+                           int a_start= qry.value(0).toInt();
+                           int a_end= qry.value(1).toInt();
+                           if (room_available(a_start,a_end,start.toInt(), end.toInt())) {
+                               continue;
+                           } else{
+                             available = false;
+                               break;
+                           }
+                       }
+                      if (available){
+                          QMessageBox::information(this, "class","Class is available");
+                      }else{
+                          QMessageBox::information(this, "class","Class is not available");
+                      } }else {
+
+                          qDebug()<<"Failed to execute the query!";
+                      }
+                      reservationsClose();
+
+                   }
 
