@@ -37,7 +37,7 @@
            <enum>QTabWidget::West</enum>
           </property>
           <property name="currentIndex">
-           <number>1</number>
+           <number>3</number>
           </property>
           <widget class="QWidget" name="tab_3">
            <attribute name="title">
@@ -401,62 +401,62 @@
                   <widget class="QComboBox" name="rev_start_time">
                    <item>
                     <property name="text">
-                     <string>06:00</string>
+                     <string>6</string>
                     </property>
                    </item>
                    <item>
                     <property name="text">
-                     <string>07:00</string>
+                     <string>7</string>
                     </property>
                    </item>
                    <item>
                     <property name="text">
-                     <string>08:00</string>
+                     <string>8</string>
                     </property>
                    </item>
                    <item>
                     <property name="text">
-                     <string>09:00</string>
+                     <string>9</string>
                     </property>
                    </item>
                    <item>
                     <property name="text">
-                     <string>10:00</string>
+                     <string>10</string>
                     </property>
                    </item>
                    <item>
                     <property name="text">
-                     <string>11:00</string>
+                     <string>11</string>
                     </property>
                    </item>
                    <item>
                     <property name="text">
-                     <string>12:00</string>
+                     <string>12</string>
                     </property>
                    </item>
                    <item>
                     <property name="text">
-                     <string>13:00</string>
+                     <string>13</string>
                     </property>
                    </item>
                    <item>
                     <property name="text">
-                     <string>14:00</string>
+                     <string>14</string>
                     </property>
                    </item>
                    <item>
                     <property name="text">
-                     <string>15:00</string>
+                     <string>15</string>
                     </property>
                    </item>
                    <item>
                     <property name="text">
-                     <string>16:00</string>
+                     <string>16</string>
                     </property>
                    </item>
                    <item>
                     <property name="text">
-                     <string>17:00</string>
+                     <string>17</string>
                     </property>
                    </item>
                   </widget>
@@ -475,67 +475,67 @@
                   <widget class="QComboBox" name="rev_end_time">
                    <item>
                     <property name="text">
-                     <string>07:00</string>
+                     <string>7</string>
                     </property>
                    </item>
                    <item>
                     <property name="text">
-                     <string>08:00</string>
+                     <string>8</string>
                     </property>
                    </item>
                    <item>
                     <property name="text">
-                     <string>09:00</string>
+                     <string>9</string>
                     </property>
                    </item>
                    <item>
                     <property name="text">
-                     <string>10:00</string>
+                     <string>10</string>
                     </property>
                    </item>
                    <item>
                     <property name="text">
-                     <string>11:00</string>
+                     <string>11</string>
                     </property>
                    </item>
                    <item>
                     <property name="text">
-                     <string>12:00</string>
+                     <string>12</string>
                     </property>
                    </item>
                    <item>
                     <property name="text">
-                     <string>13:00</string>
+                     <string>13</string>
                     </property>
                    </item>
                    <item>
                     <property name="text">
-                     <string>14:00</string>
+                     <string>14</string>
                     </property>
                    </item>
                    <item>
                     <property name="text">
-                     <string>15:00</string>
+                     <string>15</string>
                     </property>
                    </item>
                    <item>
                     <property name="text">
-                     <string>16:00</string>
+                     <string>16</string>
                     </property>
                    </item>
                    <item>
                     <property name="text">
-                     <string>17:00</string>
+                     <string>17</string>
                     </property>
                    </item>
                    <item>
                     <property name="text">
-                     <string>18:00</string>
+                     <string>18</string>
                     </property>
                    </item>
                    <item>
                     <property name="text">
-                     <string>19:00</string>
+                     <string>19</string>
                     </property>
                    </item>
                   </widget>
@@ -814,7 +814,53 @@
                 </widget>
                </item>
                <item>
-                <widget class="QComboBox" name="cs_block"/>
+                <widget class="QComboBox" name="cs_block">
+                 <item>
+                  <property name="text">
+                   <string>1</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>2</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>3</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>4</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>5</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>6</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>7</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>8</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>9</string>
+                  </property>
+                 </item>
+                </widget>
                </item>
               </layout>
              </item>
@@ -828,7 +874,14 @@
                 </widget>
                </item>
                <item>
-                <widget class="QComboBox" name="cs_room"/>
+                <widget class="QLineEdit" name="cs_room">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                </widget>
                </item>
               </layout>
              </item>
@@ -842,7 +895,73 @@
                 </widget>
                </item>
                <item>
-                <widget class="QComboBox" name="cs_start_time"/>
+                <widget class="QComboBox" name="cs_start_time">
+                 <item>
+                  <property name="text">
+                   <string>6</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>7</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>8</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>9</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>10</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>11</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>12</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>13</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>14</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>15</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>16</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>17</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>18</string>
+                  </property>
+                 </item>
+                </widget>
                </item>
                <item>
                 <widget class="QLabel" name="label_4">
@@ -855,7 +974,73 @@
                 </widget>
                </item>
                <item>
-                <widget class="QComboBox" name="cs_end_time"/>
+                <widget class="QComboBox" name="cs_end_time">
+                 <item>
+                  <property name="text">
+                   <string>7</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>8</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>9</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>10</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>11</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>12</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>13</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>14</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>15</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>16</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>17</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>18</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>19</string>
+                  </property>
+                 </item>
+                </widget>
                </item>
               </layout>
              </item>
@@ -864,19 +1049,50 @@
                <item>
                 <widget class="QLabel" name="label_5">
                  <property name="text">
-                  <string>Status</string>
+                  <string>Day</string>
                  </property>
                 </widget>
                </item>
                <item>
-                <widget class="QComboBox" name="cs_status"/>
+                <widget class="QComboBox" name="cs_day">
+                 <item>
+                  <property name="text">
+                   <string>Sunday</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Monday</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Tuesday</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Wednesday</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Thursday</string>
+                  </property>
+                 </item>
+                 <item>
+                  <property name="text">
+                   <string>Friday</string>
+                  </property>
+                 </item>
+                </widget>
                </item>
               </layout>
              </item>
              <item>
-              <widget class="QPushButton" name="cs_change">
+              <widget class="QPushButton" name="cs_show">
                <property name="text">
-                <string>Change</string>
+                <string>Show</string>
                </property>
               </widget>
              </item>
