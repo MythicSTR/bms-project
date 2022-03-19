@@ -215,3 +215,36 @@ void MainWindow::on_switch_button_clicked()
 
 }
 
+void MainWindow::on_ps_show_clicked()
+{
+    QString professor = ui->ps_name->currentText();
+    QString day = ui->ps_day->currentText();
+    QString start = ui->ps_start->currentText();
+    QString end = ui->ps_end->currentText();
+    bool available = true;
+
+    reservationsOpen();
+    QSqlQuery qry;
+    qry.prepare("Select start,end from '"+day+"' where professor='"+professor+"'");
+    if(qry.exec()) {
+        while(qry.next()) {
+            int a_start = qry.value(0).toInt();
+            int a_end = qry.value(1).toInt();
+            if(room_available(a_start, a_end, start.toInt(), end.toInt())) {
+                continue;
+            } else {
+                available = false;
+                break;
+            }
+        }
+        if(available) {
+            QMessageBox::information(this, "Status", professor+" is available!");
+        } else {
+            QMessageBox::information(this, "Status", professor+" is not available!");
+        }
+    } else {
+        qDebug() << "Failed to execute the query!";
+    }
+    reservationsClose();
+}
+
