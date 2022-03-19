@@ -38,6 +38,7 @@ MainWindow::MainWindow(QWidget *parent) :
         while(!professor_stream.atEnd()) {
             line = professor_stream.readLine();
             ui->rev_professor->addItem(line);
+            ui->ps_name->addItem(line);
         }
         professor_stream.flush(); professor.close();
     }
@@ -212,28 +213,5 @@ void MainWindow::on_switch_button_clicked()
         QMessageBox::information(this,"Termmination","Switch process was terminated.");
      }
 
-
-
-
-
-
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
