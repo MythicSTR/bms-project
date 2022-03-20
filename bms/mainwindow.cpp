@@ -97,6 +97,7 @@ void MainWindow::on_reserve_button_clicked()
     reservationsClose();    //close the connection to reservations.db
     qDebug() << "Successfully reserved!";
 }
+
 void MainWindow::on_cs_show_clicked()
 {
 
