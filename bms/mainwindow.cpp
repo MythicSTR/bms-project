@@ -104,12 +104,12 @@ void MainWindow::on_switch_button_clicked()
 {
     //read all the data from the switch tab
     QString from_block = ui->sw_from_block->currentText();
-    QString from_room = ui->from_room->text();
+    QString from_room = ui->sw_from_room->text();
     QString from_day = ui->sw_from_day->currentText();
     QString from_stime = ui->sw_from_stime->currentText();
     QString from_etime = ui->sw_from_etime->currentText();
     QString to_block = ui->sw_to_block->currentText();
-    QString to_room = ui->sw_to_room->currentText();
+    QString to_room = ui->sw_to_room->text();
     QString to_day = ui->sw_to_day->currentText();
     QString to_stime = ui->sw_to_stime->currentText();
     QString to_etime = ui->sw_to_etime->currentText();
@@ -247,4 +247,43 @@ void MainWindow::on_ps_show_clicked()
     }
     reservationsClose();
 }
+
+void MainWindow::on_cs_show_clicked()
+{
+
+    QString block = ui->cs_block->currentText();
+    QString room = ui->cs_room->text();
+    QString day = ui->cs_day->currentText();
+    QString start = ui->cs_start_time->currentText();
+    QString end = ui->cs_end_time->currentText();
+
+    bool available  = true;
+    reservationsOpen();
+    QSqlQuery qry;
+
+    qry.prepare("select start,end from '"+day+"' where block='"+block+"' and room= '"+room+"'" );
+                if(qry.exec()){
+                       int check_count =1;
+                       while (qry.next()){
+                           qDebug()<<"(" << check_count++ << ")" <<"Checking...";
+                           int a_start= qry.value(0).toInt();
+                           int a_end= qry.value(1).toInt();
+                           if (room_available(a_start,a_end,start.toInt(), end.toInt())) {
+                               continue;
+                           } else{
+                             available = false;
+                               break;
+                           }
+                       }
+                      if (available){
+                          QMessageBox::information(this, "class","Class is available");
+                      }else{
+                          QMessageBox::information(this, "class","Class is not available");
+                      } }else {
+
+                          qDebug()<<"Failed to execute the query!";
+                      }
+                      reservationsClose();
+
+                   }
 
