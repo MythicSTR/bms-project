@@ -20,6 +20,7 @@ public:
     //to open the database : reservations.db
     bool reservationsOpen() {
         QString path = QDir::currentPath() + "/../bms/data/reservations.db";
+        //QString path = "/Users/panda/Documents/project-official/bms-project/bms/data/reservations.db";
         reservations = QSqlDatabase::addDatabase("QSQLITE");
         reservations.setDatabaseName(path);
 
@@ -35,7 +36,7 @@ public:
     //to close the database : reservations.db
     void reservationsClose() {
         reservations.close();
-        reservations.removeDatabase(QSqlDatabase::defaultConnection);
+        reservations.removeDatabase("connectionName");
     };
 
     explicit MainWindow(QWidget *parent = nullptr);
