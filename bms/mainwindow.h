@@ -16,6 +16,7 @@ class MainWindow : public QMainWindow
 
 public:
     QSqlDatabase reservations;
+    QSqlDatabase collegedb;
 
     //to open the database : reservations.db
     bool reservationsOpen() {
@@ -39,18 +40,38 @@ public:
         reservations.removeDatabase("connectionName");
     };
 
+    bool collegedbOpen() {
+        QString path = QDir::currentPath() + "/../bms/data/college.db";
+        collegedb = QSqlDatabase::addDatabase("QSQLITE");
+        collegedb.setDatabaseName(path);
+
+        if(!collegedb.open()) {
+            qDebug() << "Failed to connect to college.db";
+            return false;
+        } else {
+            qDebug() << "Successfully connected to college.db";
+            return true;
+        }
+    }
+
+    void collegedbClose() {
+        collegedb.close();
+        collegedb.removeDatabase("connectionName");
+    }
+
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
 private slots:
     void on_reserve_button_clicked();
 
-
     void on_switch_button_clicked();
 
     void on_ps_show_clicked();
 
     void on_cs_show_clicked();
+
+    void on_ov_show_clicked();
 
 private:
     Ui::MainWindow *ui;
