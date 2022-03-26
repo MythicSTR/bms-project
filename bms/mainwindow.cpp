@@ -32,16 +32,16 @@ MainWindow::MainWindow(QWidget *parent) :
        faculty_stream.flush(); faculty.close();
     }
 
-    QFile professor(":/resources/data/professor.txt");
-    QTextStream professor_stream(&professor);
-    if(professor.open(QFile::ReadOnly | QFile::Text)) {
-        while(!professor_stream.atEnd()) {
-            line = professor_stream.readLine();
-            ui->rev_professor->addItem(line);
-            ui->ps_name->addItem(line);
+    collegedbOpen();
+    QSqlQuery qry;
+    qry.prepare("select * from professor");
+    if(qry.exec()) {
+        while(qry.next()) {
+            ui->rev_professor->addItem(qry.value(0).toString());
+            ui->ps_name->addItem(qry.value(0).toString());
         }
-        professor_stream.flush(); professor.close();
     }
+    collegedbClose();
 }
 
 MainWindow::~MainWindow()
