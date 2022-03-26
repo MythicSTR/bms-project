@@ -71,6 +71,8 @@ private slots:
 
     void on_cs_show_clicked();
 
+    void on_ov_show_clicked();
+
 private:
     Ui::MainWindow *ui;
 };
