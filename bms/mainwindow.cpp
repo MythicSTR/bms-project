@@ -39,6 +39,7 @@ MainWindow::MainWindow(QWidget *parent) :
         while(qry.next()) {
             ui->rev_professor->addItem(qry.value(0).toString());
             ui->ps_name->addItem(qry.value(0).toString());
+            ui->ov_professor->addItem(qry.value(0).toString());
         }
     }
     collegedbClose();
