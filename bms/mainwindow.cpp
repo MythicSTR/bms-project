@@ -39,6 +39,7 @@ MainWindow::MainWindow(QWidget *parent) :
             line = professor_stream.readLine();
             ui->rev_professor->addItem(line);
             ui->ps_name->addItem(line);
+            ui->ov_professor->addItem(line);
         }
         professor_stream.flush(); professor.close();
     }
@@ -459,4 +460,51 @@ void MainWindow::on_cs_show_clicked()
                       reservationsClose();
 
                    }
+
+
+void MainWindow::on_ov_show_clicked()
+{
+    reservationsOpen();
+    QString day = ui->ov_day->currentText();
+    QString block = ui->ov_block->currentText();
+    QString professor = ui->ov_professor->currentText();
+    QSqlQueryModel * modal = new QSqlQueryModel();
+    QSqlQuery * qry = new QSqlQuery(reservations);
+
+    if(block.toUtf8() != "All" && professor.toUtf8() != "All") {
+        qDebug() << block << " " << professor;
+        qry->prepare("select * from '"+day+"' where block = '"+block+"' and professor = '"+professor+"'");
+       }
+    else if(block.toUtf8() != "All" && professor.toUtf8() == "All"){
+        qry->prepare("select * from '"+day+"' where block = '"+block+"'");
+        qDebug() << "2";
+    }
+    else if(professor.toUtf8() != "All" && block.toUtf8() == "All")
+        qry->prepare("select * from '"+day+"' where professor = '"+professor+"'");
+    else
+        qry->prepare("select * from '"+day+"'");
+
+    qry->exec();
+    modal->setQuery(*qry);
+    modal->setHeaderData(0, Qt::Horizontal, QObject::tr("Block"));
+    modal->setHeaderData(1, Qt::Horizontal, QObject::tr("Room"));
+    modal->setHeaderData(2, Qt::Horizontal, QObject::tr("Start"));
+    modal->setHeaderData(3, Qt::Horizontal, QObject::tr("End"));
+    modal->setHeaderData(4, Qt::Horizontal, QObject::tr("Status"));
+    modal->setHeaderData(5, Qt::Horizontal, QObject::tr("Faculty"));
+    modal->setHeaderData(6, Qt::Horizontal, QObject::tr("Year"));
+    modal->setHeaderData(7, Qt::Horizontal, QObject::tr("Semester"));
+    modal->setHeaderData(8, Qt::Horizontal, QObject::tr("Professor"));
+    modal->setHeaderData(9, Qt::Horizontal, QObject::tr("Subject"));
+
+
+    ui->ov_tableView->setModel(modal);
+    ui->ov_tableView->horizontalHeader()->setStretchLastSection(true);
+    ui->ov_tableView->setColumnWidth(5, 240);
+    ui->ov_tableView->setColumnWidth(8, 240);
+    ui->ov_tableView->setSelectionMode(QAbstractItemView::SingleSelection);
+    ui->ov_tableView->setSelectionBehavior(QAbstractItemView::SelectRows);
+    reservationsClose();
+    qDebug() << modal->rowCount();
+}
 
