@@ -7,6 +7,9 @@ LogInWindow::LogInWindow(QWidget *parent)
     , ui(new Ui::LogInWindow)
 {
     ui->setupUi(this);
+    setWindowTitle("Login");
+    setWindowIcon(QIcon(":/data/icon.png"));
+
 }
 
 LogInWindow::~LogInWindow()
