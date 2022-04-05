@@ -13,12 +13,30 @@
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
+  <property name="styleSheet">
+   <string notr="true">QTabBar::tab { min-width: 60px; }</string>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QHBoxLayout" name="horizontalLayout">
     <item>
      <widget class="QTabWidget" name="mainTabWidget">
+      <property name="sizePolicy">
+       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+        <horstretch>0</horstretch>
+        <verstretch>0</verstretch>
+       </sizepolicy>
+      </property>
+      <property name="minimumSize">
+       <size>
+        <width>0</width>
+        <height>0</height>
+       </size>
+      </property>
       <property name="layoutDirection">
        <enum>Qt::LeftToRight</enum>
+      </property>
+      <property name="styleSheet">
+       <string notr="true"/>
       </property>
       <property name="tabPosition">
        <enum>QTabWidget::North</enum>
@@ -37,7 +55,7 @@
            <enum>QTabWidget::West</enum>
           </property>
           <property name="currentIndex">
-           <number>0</number>
+           <number>4</number>
           </property>
           <widget class="QWidget" name="tab_3">
            <attribute name="title">
@@ -279,7 +297,14 @@
                   </widget>
                  </item>
                  <item>
-                  <widget class="QComboBox" name="rev_faculty"/>
+                  <widget class="QComboBox" name="rev_faculty">
+                   <property name="minimumSize">
+                    <size>
+                     <width>300</width>
+                     <height>40</height>
+                    </size>
+                   </property>
+                  </widget>
                  </item>
                 </layout>
                </item>
@@ -288,12 +313,24 @@
                  <item>
                   <widget class="QLabel" name="label_10">
                    <property name="text">
-                    <string>Year</string>
+                    <string>Year/Semester</string>
                    </property>
                   </widget>
                  </item>
                  <item>
                   <widget class="QComboBox" name="rev_year">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
+                   <property name="minimumSize">
+                    <size>
+                     <width>210</width>
+                     <height>40</height>
+                    </size>
+                   </property>
                    <item>
                     <property name="text">
                      <string>1st</string>
@@ -317,14 +354,19 @@
                   </widget>
                  </item>
                  <item>
-                  <widget class="QLabel" name="label_11">
-                   <property name="text">
-                    <string>Semester</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item>
                   <widget class="QComboBox" name="rev_semester">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
+                   <property name="minimumSize">
+                    <size>
+                     <width>210</width>
+                     <height>40</height>
+                    </size>
+                   </property>
                    <item>
                     <property name="text">
                      <string>1st</string>
@@ -350,6 +392,12 @@
                  </item>
                  <item>
                   <widget class="QComboBox" name="rev_block_no">
+                   <property name="minimumSize">
+                    <size>
+                     <width>300</width>
+                     <height>40</height>
+                    </size>
+                   </property>
                    <item>
                     <property name="text">
                      <string>1</string>
@@ -428,8 +476,8 @@
                    </property>
                    <property name="minimumSize">
                     <size>
-                     <width>0</width>
-                     <height>0</height>
+                     <width>300</width>
+                     <height>40</height>
                     </size>
                    </property>
                   </widget>
@@ -447,6 +495,18 @@
                  </item>
                  <item>
                   <widget class="QComboBox" name="rev_start_time">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
+                   <property name="minimumSize">
+                    <size>
+                     <width>180</width>
+                     <height>40</height>
+                    </size>
+                   </property>
                    <item>
                     <property name="text">
                      <string>6</string>
@@ -511,6 +571,18 @@
                  </item>
                  <item>
                   <widget class="QLabel" name="label_19">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
+                   <property name="minimumSize">
+                    <size>
+                     <width>65</width>
+                     <height>0</height>
+                    </size>
+                   </property>
                    <property name="text">
                     <string>to</string>
                    </property>
@@ -521,6 +593,18 @@
                  </item>
                  <item>
                   <widget class="QComboBox" name="rev_end_time">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
+                   <property name="minimumSize">
+                    <size>
+                     <width>180</width>
+                     <height>40</height>
+                    </size>
+                   </property>
                    <item>
                     <property name="text">
                      <string>7</string>
@@ -601,6 +685,12 @@
                  </item>
                  <item>
                   <widget class="QComboBox" name="rev_day">
+                   <property name="minimumSize">
+                    <size>
+                     <width>300</width>
+                     <height>40</height>
+                    </size>
+                   </property>
                    <item>
                     <property name="text">
                      <string>Sunday</string>
@@ -645,7 +735,14 @@
                   </widget>
                  </item>
                  <item>
-                  <widget class="QComboBox" name="rev_professor"/>
+                  <widget class="QComboBox" name="rev_professor">
+                   <property name="minimumSize">
+                    <size>
+                     <width>300</width>
+                     <height>40</height>
+                    </size>
+                   </property>
+                  </widget>
                  </item>
                 </layout>
                </item>
@@ -666,12 +763,24 @@
                      <verstretch>0</verstretch>
                     </sizepolicy>
                    </property>
+                   <property name="minimumSize">
+                    <size>
+                     <width>300</width>
+                     <height>40</height>
+                    </size>
+                   </property>
                   </widget>
                  </item>
                 </layout>
                </item>
                <item>
                 <widget class="QPushButton" name="reserve_button">
+                 <property name="minimumSize">
+                  <size>
+                   <width>0</width>
+                   <height>40</height>
+                  </size>
+                 </property>
                  <property name="text">
                   <string>Reserve</string>
                  </property>
@@ -711,6 +820,18 @@
                      </item>
                      <item>
                       <widget class="QComboBox" name="sw_from_block">
+                       <property name="sizePolicy">
+                        <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+                         <horstretch>0</horstretch>
+                         <verstretch>0</verstretch>
+                        </sizepolicy>
+                       </property>
+                       <property name="minimumSize">
+                        <size>
+                         <width>300</width>
+                         <height>40</height>
+                        </size>
+                       </property>
                        <item>
                         <property name="text">
                          <string>3</string>
@@ -772,6 +893,12 @@
                          <verstretch>0</verstretch>
                         </sizepolicy>
                        </property>
+                       <property name="minimumSize">
+                        <size>
+                         <width>300</width>
+                         <height>40</height>
+                        </size>
+                       </property>
                        <property name="alignment">
                         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
                        </property>
@@ -790,6 +917,12 @@
                      </item>
                      <item>
                       <widget class="QComboBox" name="sw_from_day">
+                       <property name="minimumSize">
+                        <size>
+                         <width>300</width>
+                         <height>40</height>
+                        </size>
+                       </property>
                        <item>
                         <property name="text">
                          <string>Sunday</string>
@@ -835,6 +968,12 @@
                      </item>
                      <item>
                       <widget class="QComboBox" name="sw_from_stime">
+                       <property name="minimumSize">
+                        <size>
+                         <width>0</width>
+                         <height>40</height>
+                        </size>
+                       </property>
                        <item>
                         <property name="text">
                          <string>7</string>
@@ -884,6 +1023,18 @@
                      </item>
                      <item>
                       <widget class="QLabel" name="label_28">
+                       <property name="sizePolicy">
+                        <sizepolicy hsizetype="Maximum" vsizetype="Minimum">
+                         <horstretch>0</horstretch>
+                         <verstretch>0</verstretch>
+                        </sizepolicy>
+                       </property>
+                       <property name="minimumSize">
+                        <size>
+                         <width>65</width>
+                         <height>0</height>
+                        </size>
+                       </property>
                        <property name="text">
                         <string>to</string>
                        </property>
@@ -894,6 +1045,12 @@
                      </item>
                      <item>
                       <widget class="QComboBox" name="sw_from_etime">
+                       <property name="minimumSize">
+                        <size>
+                         <width>0</width>
+                         <height>40</height>
+                        </size>
+                       </property>
                        <item>
                         <property name="text">
                          <string>8</string>
@@ -966,6 +1123,12 @@
                      </item>
                      <item>
                       <widget class="QComboBox" name="sw_to_block">
+                       <property name="minimumSize">
+                        <size>
+                         <width>300</width>
+                         <height>40</height>
+                        </size>
+                       </property>
                        <item>
                         <property name="text">
                          <string>3</string>
@@ -1027,6 +1190,12 @@
                          <verstretch>0</verstretch>
                         </sizepolicy>
                        </property>
+                       <property name="minimumSize">
+                        <size>
+                         <width>300</width>
+                         <height>40</height>
+                        </size>
+                       </property>
                       </widget>
                      </item>
                     </layout>
@@ -1042,6 +1211,12 @@
                      </item>
                      <item>
                       <widget class="QComboBox" name="sw_to_day">
+                       <property name="minimumSize">
+                        <size>
+                         <width>300</width>
+                         <height>40</height>
+                        </size>
+                       </property>
                        <item>
                         <property name="text">
                          <string>Sunday</string>
@@ -1087,6 +1262,12 @@
                      </item>
                      <item>
                       <widget class="QComboBox" name="sw_to_stime">
+                       <property name="minimumSize">
+                        <size>
+                         <width>0</width>
+                         <height>40</height>
+                        </size>
+                       </property>
                        <item>
                         <property name="text">
                          <string>7</string>
@@ -1136,6 +1317,18 @@
                      </item>
                      <item>
                       <widget class="QLabel" name="label_30">
+                       <property name="sizePolicy">
+                        <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
+                         <horstretch>0</horstretch>
+                         <verstretch>0</verstretch>
+                        </sizepolicy>
+                       </property>
+                       <property name="minimumSize">
+                        <size>
+                         <width>65</width>
+                         <height>0</height>
+                        </size>
+                       </property>
                        <property name="text">
                         <string>to</string>
                        </property>
@@ -1146,6 +1339,12 @@
                      </item>
                      <item>
                       <widget class="QComboBox" name="sw_to_etime">
+                       <property name="minimumSize">
+                        <size>
+                         <width>0</width>
+                         <height>40</height>
+                        </size>
+                       </property>
                        <item>
                         <property name="text">
                          <string>8</string>
@@ -1202,6 +1401,12 @@
               </item>
               <item>
                <widget class="QPushButton" name="switch_button">
+                <property name="minimumSize">
+                 <size>
+                  <width>0</width>
+                  <height>40</height>
+                 </size>
+                </property>
                 <property name="text">
                  <string>Switch</string>
                 </property>
@@ -1215,270 +1420,360 @@
            <attribute name="title">
             <string>Class Status</string>
            </attribute>
-           <widget class="QGroupBox" name="groupBox">
-            <property name="geometry">
-             <rect>
-              <x>170</x>
-              <y>10</y>
-              <width>421</width>
-              <height>351</height>
-             </rect>
-            </property>
-            <property name="title">
-             <string>Class Status</string>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignCenter</set>
-            </property>
-            <layout class="QVBoxLayout" name="verticalLayout">
-             <item>
-              <layout class="QHBoxLayout" name="horizontalLayout_3">
-               <item>
-                <widget class="QLabel" name="label">
-                 <property name="text">
-                  <string>Block</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QComboBox" name="cs_block"/>
-               </item>
-              </layout>
-             </item>
-             <item>
-              <layout class="QHBoxLayout" name="horizontalLayout_4">
-               <item>
-                <widget class="QLabel" name="label_2">
-                 <property name="text">
-                  <string>Room No.</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QLineEdit" name="cs_room">
-                 <property name="sizePolicy">
-                  <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
-                   <horstretch>0</horstretch>
-                   <verstretch>0</verstretch>
-                  </sizepolicy>
-                 </property>
-                </widget>
-               </item>
-              </layout>
-             </item>
-             <item>
-              <layout class="QHBoxLayout" name="horizontalLayout_5">
-               <item>
-                <widget class="QLabel" name="label_3">
-                 <property name="text">
-                  <string>Time</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QComboBox" name="cs_start_time">
-                 <item>
-                  <property name="text">
-                   <string>6</string>
-                  </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string>7</string>
-                  </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string>8</string>
-                  </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string>9</string>
-                  </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string>10</string>
-                  </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string>11</string>
-                  </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string>12</string>
-                  </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string>13</string>
-                  </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string>14</string>
-                  </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string>15</string>
-                  </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string>16</string>
-                  </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string>17</string>
-                  </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string>18</string>
-                  </property>
-                 </item>
-                </widget>
-               </item>
-               <item>
-                <widget class="QLabel" name="label_4">
-                 <property name="text">
-                  <string>to</string>
-                 </property>
-                 <property name="alignment">
-                  <set>Qt::AlignCenter</set>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QComboBox" name="cs_end_time">
-                 <item>
-                  <property name="text">
-                   <string>7</string>
-                  </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string>8</string>
-                  </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string>9</string>
-                  </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string>10</string>
-                  </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string>11</string>
-                  </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string>12</string>
-                  </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string>13</string>
-                  </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string>14</string>
-                  </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string>15</string>
-                  </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string>16</string>
-                  </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string>17</string>
-                  </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string>18</string>
-                  </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string>19</string>
-                  </property>
-                 </item>
-                </widget>
-               </item>
-              </layout>
-             </item>
-             <item>
-              <layout class="QHBoxLayout" name="horizontalLayout_6">
-               <item>
-                <widget class="QLabel" name="label_5">
-                 <property name="text">
-                  <string>Day</string>
-                 </property>
-                </widget>
-               </item>
-               <item>
-                <widget class="QComboBox" name="cs_day">
-                 <item>
-                  <property name="text">
-                   <string>Sunday</string>
-                  </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string>Monday</string>
-                  </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string>Tuesday</string>
-                  </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string>Wednesday</string>
-                  </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string>Thursday</string>
-                  </property>
-                 </item>
-                 <item>
-                  <property name="text">
-                   <string>Friday</string>
-                  </property>
-                 </item>
-                </widget>
-               </item>
-              </layout>
-             </item>
-             <item>
-              <widget class="QPushButton" name="cs_show">
-               <property name="text">
-                <string>Show</string>
+           <layout class="QGridLayout" name="gridLayout_3">
+            <item row="0" column="0">
+             <widget class="QGroupBox" name="groupBox">
+              <property name="sizePolicy">
+               <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
+                <horstretch>0</horstretch>
+                <verstretch>0</verstretch>
+               </sizepolicy>
+              </property>
+              <property name="minimumSize">
+               <size>
+                <width>600</width>
+                <height>500</height>
+               </size>
+              </property>
+              <property name="title">
+               <string/>
+              </property>
+              <property name="alignment">
+               <set>Qt::AlignCenter</set>
+              </property>
+              <layout class="QVBoxLayout" name="verticalLayout">
+               <property name="leftMargin">
+                <number>11</number>
                </property>
-              </widget>
-             </item>
-            </layout>
-           </widget>
+               <property name="topMargin">
+                <number>11</number>
+               </property>
+               <item>
+                <layout class="QHBoxLayout" name="horizontalLayout_3">
+                 <item>
+                  <widget class="QLabel" name="label">
+                   <property name="text">
+                    <string>Block</string>
+                   </property>
+                   <property name="alignment">
+                    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QComboBox" name="cs_block">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
+                   <property name="minimumSize">
+                    <size>
+                     <width>300</width>
+                     <height>40</height>
+                    </size>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+               <item>
+                <layout class="QHBoxLayout" name="horizontalLayout_4">
+                 <item>
+                  <widget class="QLabel" name="label_2">
+                   <property name="text">
+                    <string>Room No.</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLineEdit" name="cs_room">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
+                   <property name="minimumSize">
+                    <size>
+                     <width>300</width>
+                     <height>40</height>
+                    </size>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+               <item>
+                <layout class="QHBoxLayout" name="horizontalLayout_5">
+                 <item>
+                  <widget class="QLabel" name="label_3">
+                   <property name="text">
+                    <string>Time</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QComboBox" name="cs_start_time">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
+                   <property name="minimumSize">
+                    <size>
+                     <width>150</width>
+                     <height>40</height>
+                    </size>
+                   </property>
+                   <item>
+                    <property name="text">
+                     <string>6</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>7</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>8</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>9</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>10</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>11</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>12</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>13</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>14</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>15</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>16</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>17</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>18</string>
+                    </property>
+                   </item>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="label_4">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
+                   <property name="minimumSize">
+                    <size>
+                     <width>65</width>
+                     <height>0</height>
+                    </size>
+                   </property>
+                   <property name="text">
+                    <string>to</string>
+                   </property>
+                   <property name="alignment">
+                    <set>Qt::AlignCenter</set>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QComboBox" name="cs_end_time">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
+                   <property name="minimumSize">
+                    <size>
+                     <width>150</width>
+                     <height>40</height>
+                    </size>
+                   </property>
+                   <item>
+                    <property name="text">
+                     <string>7</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>8</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>9</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>10</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>11</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>12</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>13</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>14</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>15</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>16</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>17</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>18</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>19</string>
+                    </property>
+                   </item>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+               <item>
+                <layout class="QHBoxLayout" name="horizontalLayout_6">
+                 <item>
+                  <widget class="QLabel" name="label_5">
+                   <property name="text">
+                    <string>Day</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QComboBox" name="cs_day">
+                   <property name="sizePolicy">
+                    <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
+                     <horstretch>0</horstretch>
+                     <verstretch>0</verstretch>
+                    </sizepolicy>
+                   </property>
+                   <property name="minimumSize">
+                    <size>
+                     <width>300</width>
+                     <height>40</height>
+                    </size>
+                   </property>
+                   <item>
+                    <property name="text">
+                     <string>Sunday</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>Monday</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>Tuesday</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>Wednesday</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>Thursday</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>Friday</string>
+                    </property>
+                   </item>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+               <item>
+                <widget class="QPushButton" name="cs_show">
+                 <property name="minimumSize">
+                  <size>
+                   <width>300</width>
+                   <height>40</height>
+                  </size>
+                 </property>
+                 <property name="text">
+                  <string>Show</string>
+                 </property>
+                </widget>
+               </item>
+              </layout>
+             </widget>
+            </item>
+           </layout>
           </widget>
           <widget class="QWidget" name="tab_7">
            <attribute name="title">
@@ -1487,14 +1782,20 @@
            <widget class="QGroupBox" name="groupBox_5">
             <property name="geometry">
              <rect>
-              <x>239</x>
-              <y>140</y>
-              <width>431</width>
-              <height>301</height>
+              <x>89</x>
+              <y>30</y>
+              <width>711</width>
+              <height>491</height>
              </rect>
             </property>
+            <property name="sizePolicy">
+             <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
             <property name="title">
-             <string>GroupBox</string>
+             <string/>
             </property>
             <layout class="QVBoxLayout" name="verticalLayout_5">
              <item>
@@ -1507,7 +1808,20 @@
                 </widget>
                </item>
                <item>
-                <widget class="QComboBox" name="ps_name"/>
+                <widget class="QComboBox" name="ps_name">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="minimumSize">
+                  <size>
+                   <width>330</width>
+                   <height>40</height>
+                  </size>
+                 </property>
+                </widget>
                </item>
               </layout>
              </item>
@@ -1522,6 +1836,12 @@
                </item>
                <item>
                 <widget class="QComboBox" name="ps_day">
+                 <property name="minimumSize">
+                  <size>
+                   <width>300</width>
+                   <height>40</height>
+                  </size>
+                 </property>
                  <item>
                   <property name="text">
                    <string>Sunday</string>
@@ -1567,6 +1887,18 @@
                </item>
                <item>
                 <widget class="QComboBox" name="ps_start">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="minimumSize">
+                  <size>
+                   <width>150</width>
+                   <height>40</height>
+                  </size>
+                 </property>
                  <item>
                   <property name="text">
                    <string>6</string>
@@ -1636,6 +1968,12 @@
                </item>
                <item>
                 <widget class="QLabel" name="label_33">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
                  <property name="text">
                   <string>to</string>
                  </property>
@@ -1646,6 +1984,18 @@
                </item>
                <item>
                 <widget class="QComboBox" name="ps_end">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="minimumSize">
+                  <size>
+                   <width>150</width>
+                   <height>40</height>
+                  </size>
+                 </property>
                  <item>
                   <property name="text">
                    <string>7</string>
@@ -1717,6 +2067,12 @@
              </item>
              <item>
               <widget class="QPushButton" name="ps_show">
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>40</height>
+                </size>
+               </property>
                <property name="text">
                 <string>Show</string>
                </property>
@@ -1737,16 +2093,6 @@
      </widget>
     </item>
    </layout>
-  </widget>
-  <widget class="QMenuBar" name="menubar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>1035</width>
-     <height>21</height>
-    </rect>
-   </property>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
