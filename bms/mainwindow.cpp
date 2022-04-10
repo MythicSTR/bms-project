@@ -4,6 +4,9 @@
 #include "ui_mainwindow.h"
 #include "horizontaltab.h"
 #include <QMessageBox>
+#include <QFileDialog>
+#include <QPixmap>
+#include <string>
 
 //check if room is available in given time : from reservations.db
 bool room_available(int a_start, int a_end, int start, int end) {
@@ -13,11 +16,14 @@ bool room_available(int a_start, int a_end, int start, int end) {
     return true;
 }
 
+QString filepath;
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+
+
     ui->dashboardTabWidget->tabBar()->setStyle(new CustomTabStyle);
 
     QFile faculty(":/resources/data/faculty.txt");
@@ -28,6 +34,7 @@ MainWindow::MainWindow(QWidget *parent) :
        {
           line = faculty_stream.readLine();
           ui->rev_faculty->addItem(line);
+          ui->profile_register_dept->addItem(line);
        }
        faculty_stream.flush(); faculty.close();
     }
@@ -123,7 +130,7 @@ void MainWindow::on_switch_button_clicked()
 
      reservationsOpen();
      QSqlQuery qry;
-     QMessageBox::StandardButton reply = QMessageBox::question(this,"Confirmation","Do you want to switch?",QMessageBox::Yes|QMessageBox::No);
+     QMessageBox::StandardButton reply = QMessageBox::question(this,"Confirmation","Do you want to switch?",QMessageBox::Yes|QMessageBox::No,QMessageBox::Yes);
      if(reply == QMessageBox::Yes)
      {
          if((stime_from - etime_from) == (stime_to - etime_to)) //checking if classes are of same time duration or not
@@ -452,5 +459,145 @@ void MainWindow::on_ov_show_clicked()
     ui->ov_tableView->setSelectionBehavior(QAbstractItemView::SelectRows);
     reservationsClose();
     qDebug() << modal->rowCount();
+}
+
+void MainWindow::on_mainTabWidget_tabBarClicked(int index)
+{
+    ui->show_info_widget->setVisible(false);
+    ui->add_photo->setVisible(true);
+}
+
+void MainWindow::on_add_photo_clicked()
+{
+    filepath = QFileDialog::getOpenFileName(this,tr("Profile Photo"),/*"Users/Panda/Documents",*/"C://","All files (*.*) ;; .png files(*.*) ;; .jpg files(*.*)");
+    ui->add_photo->setText("Edit Photo");
+    QPixmap pix(filepath);
+    int w = ui-> pic_show -> width();
+    int h = ui-> pic_show -> height();
+    ui->pic_show->setPixmap (pix.scaled(w,h,Qt::KeepAspectRatio));
+}
+
+void MainWindow::on_profile_register_clicked()
+{
+    QString _fname = ui->profile_register_fname->text();
+    QString _mname= ui->profile_register_mname->text();
+    QString _lname = ui->profile_register_lname->text();
+    QString _gender = ui->profile_register_gender->currentText();
+    QString _dept = ui->profile_register_dept->currentText();
+    QString _username = ui->profile_register_username->text();
+
+    reservationsOpen();     //open and connect to reservations.db
+    QSqlQuery qry;
+    qry.prepare("select username from profile where username = '"+_username+"'");
+    int count = 0;
+    if(qry.exec())
+    {
+        while(qry.next())
+        {
+            count++;
+        }
+    }
+    if(count>=1)
+    {
+        QMessageBox :: warning(this,"Invalid Username","Username already exist");
+    }
+
+    else
+    {
+       QMessageBox::StandardButton reply = QMessageBox :: question(this,"Confirmation","Do you want to register the user ?",QMessageBox::Yes|QMessageBox::No,QMessageBox::Yes);
+       if(reply== QMessageBox::Yes)
+       {
+        qry.prepare("insert into profile (fname,mname,lname,dept,gender,username,photo,pwd) values('"+_fname+"','"+_mname+"','"+_lname+"','"+_dept+"','"+_gender+"','"+_username+"','"+filepath+"','test')");
+            if(qry.exec())
+            {
+                QMessageBox::information(this,"Confirmation","User has been sucessfully registered.");
+            }
+       }
+
+       else
+       {
+           QMessageBox :: information(this,"Information","Registration was terminated");
+       }
+       }
+
+    ui->profile_register_fname->clear();
+    ui->profile_register_mname->clear();
+    ui->profile_register_lname->clear();
+    ui->profile_register_username->clear();
+    ui->pic_show->clear();
+    ui->add_photo->setText("Add Photo");
+    reservationsClose();
+}
+
+void MainWindow::on_profile_search_clicked()
+{
+    reservationsOpen();     //open and connect to reservations.db
+    QSqlQuery qry;
+    ui->show_info_widget->setVisible(true);
+    QString _fname = ui->profile_search_fname->text();
+    QString _mname = ui->profile_search_mname->text();
+    QString _lname = ui->profile_search_lname->text();
+    QString _username = ui->profile_search_username->text();
+
+    QString arr[7];
+    int i=0;
+    if(_username.size()==0)
+    {
+        qDebug() << "Entered 1";
+        qry.prepare("select * from profile where fname='"+_fname+"' and mname='"+_mname+"' and  lname='"+_lname+"'");
+        if(qry.exec())
+        {
+            qDebug() << "Entered 2";
+            int count=0;
+            while(qry.next())
+            {
+                count++;
+            }
+
+            if(count>1)
+            {
+                QMessageBox :: warning(this,"Error","There is multiple accounts with same name. Please enter username.");
+            }
+            while(qry.next())
+            {
+                arr[i]=qry.value(i).toString();     //qry.value no working
+                i++;
+            }
+
+         }
+    }
+
+    else
+    {
+        qry.prepare("select * from profile where username='"+_username+"");
+        if(qry.exec())
+        {
+            while(qry.next())
+            {
+                arr[i] = qry.value(i).toString();
+                i++;
+            }
+        }
+    }
+
+    ui->show_fname->setText("First Name : ");
+    ui->show_mname->setText("Middle Name : ");
+    ui->show_lname->setText("Last Name : ");
+    ui->show_gender->setText("Gender : ");
+    ui->show_dept->setText("Department : ");
+    ui->show_username->setText("Username : ");
+    QPixmap pix(arr[6]);
+    int w = ui->show_pic -> width();
+    int h = ui-> show_pic -> height();
+    ui->show_pic->setPixmap (pix.scaled(w,h,Qt::KeepAspectRatio));
+    reservationsClose();
+}
+
+
+
+
+void MainWindow::on_close_search_clicked()
+{
+    ui->show_info_widget->setVisible(false);
 }
 
