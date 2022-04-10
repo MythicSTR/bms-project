@@ -17,15 +17,16 @@ bool room_available(int a_start, int a_end, int start, int end) {
 }
 
 QString filepath;
+
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
 
+    setWindowTitle("BMS");
 
     ui->dashboardTabWidget->tabBar()->setStyle(new CustomTabStyle);
-
     QFile faculty(":/resources/data/faculty.txt");
     QTextStream faculty_stream(&faculty);
     QString line;
@@ -50,6 +51,9 @@ MainWindow::MainWindow(QWidget *parent) :
         }
     }
     collegedbClose();
+
+    ui->mainTabWidget->setStyleSheet("QTabBar::tab { min-width: 100px; min-height: 60px;  }");
+
 }
 
 MainWindow::~MainWindow()
