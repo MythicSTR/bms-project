@@ -69,6 +69,10 @@
                <height>40</height>
               </size>
              </property>
+             <property name="styleSheet">
+              <string notr="true">color:white;
+background-color:black;</string>
+             </property>
              <property name="placeholderText">
               <string>Username</string>
              </property>
@@ -110,6 +114,10 @@
                <height>40</height>
               </size>
              </property>
+             <property name="styleSheet">
+              <string notr="true">color:white;
+background-color:black;</string>
+             </property>
              <property name="echoMode">
               <enum>QLineEdit::Password</enum>
              </property>
@@ -147,7 +155,15 @@
               </size>
              </property>
              <property name="styleSheet">
-              <string notr="true">background-color:royalblue ;</string>
+              <string notr="true">background-color:royalblue ;
+pushButton{
+color:white;
+border-radius:15px;
+}
+pushButton:hover{
+color:#0055ff;
+
+}</string>
              </property>
              <property name="text">
               <string>Log In</string>
