@@ -605,3 +605,9 @@ void MainWindow::on_close_search_clicked()
     ui->show_info_widget->setVisible(false);
 }
 
+
+void MainWindow::on_delete_2_clicked()
+{
+
+}
+
