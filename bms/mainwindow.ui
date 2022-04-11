@@ -2130,7 +2130,7 @@
               <string>Delete</string>
              </property>
             </widget>
-            <widget class="QWidget" name="">
+            <widget class="QWidget" name="layoutWidget">
              <property name="geometry">
               <rect>
                <x>40</x>
@@ -2276,7 +2276,7 @@
                  </widget>
                 </item>
                 <item>
-                 <widget class="QComboBox" name="del_set_time">
+                 <widget class="QComboBox" name="del_start_time">
                   <item>
                    <property name="text">
                     <string>6</string>
