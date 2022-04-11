@@ -83,6 +83,8 @@ private slots:
 
     void on_close_search_clicked();
 
+    void on_delete_2_clicked();
+
 private:
     Ui::MainWindow *ui;
 };

@@ -605,3 +605,33 @@ void MainWindow::on_close_search_clicked()
     ui->show_info_widget->setVisible(false);
 }
 
+
+void MainWindow::on_delete_2_clicked()
+{
+
+        QString block= ui ->del_block->currentText();
+        QString room = ui ->del_room->text();
+        QString day = ui->del_day-> currentText();
+        QString start = ui ->del_start_time->currentText();
+        QString end = ui ->del_end_time->currentText();
+        reservationsOpen();
+        QSqlQuery qry;
+
+    bool ok;
+
+
+    ok = qry.exec("select * from '"+day+"' WHERE block='"+block+"' and room= '"+room+"'and start = '"+start+"' and end = '"+end+"' ");
+    if (ok && qry.next()) {
+
+                                 qry.prepare("Delete from '"+day+"' where block='"+block+"' and room= '"+room+"'and start = '"+start+"' and end = '"+end+"'" );
+                                 qry.exec();
+        QMessageBox::information(this, "class","Class is deleted");
+
+    }else{
+                                  QMessageBox::information(this, "class","Unable to delete class");
+
+                                  }
+                               reservationsClose();
+    }
+
+
