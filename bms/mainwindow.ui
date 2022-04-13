@@ -42,7 +42,7 @@
        <enum>QTabWidget::North</enum>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="tab">
        <attribute name="title">
@@ -55,7 +55,7 @@
            <enum>QTabWidget::West</enum>
           </property>
           <property name="currentIndex">
-           <number>5</number>
+           <number>6</number>
           </property>
           <widget class="QWidget" name="tab_3">
            <attribute name="title">
@@ -2466,6 +2466,134 @@
            <zorder>graphicsView_2</zorder>
            <zorder>groupBox_6</zorder>
           </widget>
+          <widget class="QWidget" name="tab_9">
+           <attribute name="title">
+            <string>Routine</string>
+           </attribute>
+           <layout class="QGridLayout" name="gridLayout_4">
+            <item row="0" column="0">
+             <layout class="QVBoxLayout" name="verticalLayout_9">
+              <item>
+               <layout class="QHBoxLayout" name="horizontalLayout_45">
+                <item>
+                 <widget class="QLabel" name="label_50">
+                  <property name="text">
+                   <string>Day</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QComboBox" name="routine_day">
+                  <item>
+                   <property name="text">
+                    <string>Sunday</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>Monday</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>Tuesday</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>Wednesday</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>Thursday</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>Friday</string>
+                   </property>
+                  </item>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLabel" name="label_51">
+                  <property name="text">
+                   <string>Faculty</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QComboBox" name="routine_faculty"/>
+                </item>
+                <item>
+                 <widget class="QLabel" name="label_52">
+                  <property name="text">
+                   <string>Year</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QComboBox" name="routine_year">
+                  <item>
+                   <property name="text">
+                    <string>1st</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>2nd</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>3rd</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>4th</string>
+                   </property>
+                  </item>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QLabel" name="label_53">
+                  <property name="text">
+                   <string>Semester</string>
+                  </property>
+                 </widget>
+                </item>
+                <item>
+                 <widget class="QComboBox" name="routine_semester">
+                  <item>
+                   <property name="text">
+                    <string>1st</string>
+                   </property>
+                  </item>
+                  <item>
+                   <property name="text">
+                    <string>2nd</string>
+                   </property>
+                  </item>
+                 </widget>
+                </item>
+               </layout>
+              </item>
+              <item>
+               <widget class="QTableView" name="routine_table"/>
+              </item>
+              <item>
+               <widget class="QPushButton" name="routine_show">
+                <property name="text">
+                 <string>Show</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </item>
+           </layout>
+          </widget>
          </widget>
         </item>
        </layout>
@@ -2656,7 +2784,7 @@
           </property>
          </widget>
         </widget>
-        <widget class="QWidget" name="">
+        <widget class="QWidget" name="layoutWidget">
          <property name="geometry">
           <rect>
            <x>11</x>
@@ -2749,7 +2877,7 @@
           </item>
          </layout>
         </widget>
-        <widget class="QWidget" name="">
+        <widget class="QWidget" name="layoutWidget">
          <property name="geometry">
           <rect>
            <x>12</x>
@@ -2781,7 +2909,7 @@
           </item>
          </layout>
         </widget>
-        <widget class="QWidget" name="">
+        <widget class="QWidget" name="layoutWidget">
          <property name="geometry">
           <rect>
            <x>12</x>
@@ -2866,7 +2994,7 @@
            <x>500</x>
            <y>50</y>
            <width>301</width>
-           <height>41</height>
+           <height>42</height>
           </rect>
          </property>
          <layout class="QHBoxLayout" name="horizontalLayout_35">
@@ -2914,7 +3042,7 @@
           <string>Register</string>
          </property>
         </widget>
-        <widget class="QWidget" name="">
+        <widget class="QWidget" name="layoutWidget">
          <property name="geometry">
           <rect>
            <x>800</x>
@@ -2955,7 +3083,7 @@
           </item>
          </layout>
         </widget>
-        <widget class="QWidget" name="">
+        <widget class="QWidget" name="layoutWidget">
          <property name="geometry">
           <rect>
            <x>1</x>

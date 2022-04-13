@@ -85,6 +85,8 @@ private slots:
 
     void on_delete_2_clicked();
 
+    void on_routine_show_clicked();
+
 private:
     Ui::MainWindow *ui;
 };
