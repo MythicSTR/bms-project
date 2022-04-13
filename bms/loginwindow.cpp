@@ -16,7 +16,6 @@ LogInWindow::~LogInWindow()
 {
     delete ui;
 }
-
 void LogInWindow::on_pushButton_clicked()
 {
     QString Username = ui->lineEdit_username->text();
@@ -29,5 +28,11 @@ void LogInWindow::on_pushButton_clicked()
     else {
          QMessageBox::warning(this,"Login","Username and Password is not correct");
     }
+}
+
+
+void LogInWindow::on_pushButton_2_clicked()
+{
+    close();
 }
 
