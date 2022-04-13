@@ -5,5 +5,8 @@
     </qresource>
     <qresource prefix="/">
         <file>data/icon.png</file>
+        <file>data/ii.jpg</file>
+        <file>data/bin.jpg</file>
+        <file>data/back.jpg</file>
     </qresource>
 </RCC>
