@@ -8,5 +8,6 @@
         <file>data/ii.jpg</file>
         <file>data/bin.jpg</file>
         <file>data/back.jpg</file>
+        <file>data/aa.png</file>
     </qresource>
 </RCC>
