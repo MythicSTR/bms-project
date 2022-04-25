@@ -23,9 +23,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-
+    //this->setStyleSheet("{background-image:url(:/data/aa.png);}");
     setWindowTitle("BMS");
-
     ui->dashboardTabWidget->tabBar()->setStyle(new CustomTabStyle);
     QFile faculty(":/resources/data/faculty.txt");
     QTextStream faculty_stream(&faculty);
