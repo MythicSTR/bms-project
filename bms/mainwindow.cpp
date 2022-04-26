@@ -7,6 +7,8 @@
 #include <QFileDialog>
 #include <QPixmap>
 #include <string>
+#include "student.h"
+#include "professor.h"
 
 //check if room is available in given time : from reservations.db
 bool room_available(int a_start, int a_end, int start, int end) {
@@ -656,5 +658,21 @@ void MainWindow::on_routine_show_clicked()
     routine_modal->setHeaderData(2, Qt::Horizontal, QObject::tr("Subject"));
 
     reservationsClose();
+}
+
+
+void MainWindow::on_pushButton_clicked()
+{
+   student student;
+   student.setModal(true);
+   student.exec();
+}
+
+
+void MainWindow::on_pushButton_2_clicked()
+{
+    professor professor;
+    professor.setModal(true);
+    Professor.exec();
 }
 
