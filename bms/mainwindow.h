@@ -73,16 +73,6 @@ private slots:
 
     void on_ov_show_clicked();
 
-    void on_profile_search_clicked();
-
-    void on_profile_register_clicked();
-
-    void on_mainTabWidget_tabBarClicked(int index);
-
-    void on_add_photo_clicked();
-
-    void on_close_search_clicked();
-
     void on_delete_2_clicked();
 
     void on_routine_show_clicked();
