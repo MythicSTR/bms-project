@@ -18,7 +18,7 @@ class block : public QDialog
     //to open the database : reservations.db
     bool reservationsOpen() {
         QString path = QDir::currentPath() + "/../bms/data/reservations.db";
-        //QString path = "/Users/panda/Documents/project-official/bms-project/bms/data/reservations.db";
+       // QString path = "/Users/panda/Documents/project-official/bms-project/bms/data/reservations.db";
         reservations = QSqlDatabase::addDatabase("QSQLITE");
         reservations.setDatabaseName(path);
 
@@ -39,7 +39,7 @@ class block : public QDialog
 
     bool collegedbOpen() {
         QString path = QDir::currentPath() + "/../bms/data/college.db";
-        //QString path = "/Users/panda/Documents/project-official/bms-project/bms/data/college.db";
+       // QString path = "/Users/panda/Documents/project-official/bms-project/bms/data/college.db";
         collegedb = QSqlDatabase::addDatabase("QSQLITE");
         collegedb.setDatabaseName(path);
 
@@ -65,8 +65,6 @@ private slots:
     void on_block_add_clicked();
 
     void on_block_exit_clicked();
-
-    void on_block_show_activated(int index);
 
 private:
     Ui::block *ui;

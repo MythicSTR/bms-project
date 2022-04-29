@@ -20,7 +20,7 @@ void view_student::on_vs_load_clicked()
     QSqlQuery qry;
     QSqlQueryModel *modal = new QSqlQueryModel();
 
-    qry.prepare("select name,username,year,semester from student");
+    qry.prepare("select name,username,year,semester,faculty from student");
     if(qry.exec())
     {
         modal->setQuery(qry);

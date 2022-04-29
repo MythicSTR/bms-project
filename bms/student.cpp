@@ -22,11 +22,12 @@ void student::on_cs_create_clicked()
     QString pwd = ui->as_pwd->text();
     QString sem = ui->as_semester->currentText();
     QString year = ui->as_year->currentText();
+    QString faculty = ui->as_faculty->text();
 
     collegedbOpen();
     QSqlQuery qry;
 
-     qry.prepare("insert into student (name,username,pwd,year,semester) values ('"+name+"','"+username+"','"+pwd+"','"+year+"','"+sem+"')");
+     qry.prepare("insert into student (name,username,pwd,year,semester,faculty) values ('"+name+"','"+username+"','"+pwd+"','"+year+"','"+sem+"','"+faculty+"')");
      if(qry.exec())
      {
          QMessageBox::information(this,"Sucess","Sucessfully registered");
@@ -37,6 +38,10 @@ void student::on_cs_create_clicked()
      }
 
      collegedbClose();
+
+     ui->as_name->clear();
+     ui->as_username->clear();
+     ui->as_pwd->clear();
 }
 
 

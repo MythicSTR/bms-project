@@ -1,13 +1,14 @@
-#ifndef VIEW_PROFESSOR_H
-#define VIEW_PROFESSOR_H
-#include <QtSql>
+#ifndef UPDATE_PROFESSOR_H
+#define UPDATE_PROFESSOR_H
+
 #include <QDialog>
+#include <QtSql>
 
 namespace Ui {
-class view_professor;
+class update_professor;
 }
 
-class view_professor : public QDialog
+class update_professor : public QDialog
 {
     Q_OBJECT
 
@@ -57,16 +58,16 @@ class view_professor : public QDialog
     }
 
 public:
-    explicit view_professor(QWidget *parent = nullptr);
-    ~view_professor();
+    explicit update_professor(QWidget *parent = nullptr);
+    ~update_professor();
 
 private slots:
+    void on_up_delete_clicked();
 
-
-    void on_vp_load_clicked();
+    void on_up_exit_clicked();
 
 private:
-    Ui::view_professor *ui;
+    Ui::update_professor *ui;
 };
 
-#endif // VIEW_PROFESSOR_H
+#endif // UPDATE_PROFESSOR_H

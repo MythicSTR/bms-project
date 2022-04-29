@@ -13,6 +13,7 @@
 #include "block.h"
 #include "view_professor.h"
 #include "view_student.h"
+#include "update_professor.h"
 
 //check if room is available in given time : from reservations.db
 bool room_available(int a_start, int a_end, int start, int end) {
@@ -565,5 +566,34 @@ void MainWindow::on_view_student_clicked()
     view_student vs;
     vs.setModal(true);
     vs.exec();
+}
+
+
+//void MainWindow::on_update_student_clicked()
+//{
+//     QMessageBox::StandardButton reply = QMessageBox::question(this,"Confirmation","Semester of all the students will be updated by one. Do you want to confirm it ?",QMessageBox::Yes|QMessageBox::No,QMessageBox::Yes);
+//     if(reply==QMessageBox::Yes)
+//     {
+//         collegedbOpen();
+//         QSqlQuery qry;
+//         qry.prepare("select year,semester from student where semester='II'");
+//         if(qry.exec())
+//         {
+
+//         }
+
+//     }
+//     else
+//     {
+//         QMessageBox::information(this,"Terminated","Student information update process terminated");
+//     }
+//}
+
+
+void MainWindow::on_update_professor_clicked()
+{
+    update_professor up;
+    up.setModal(true);
+    up.exec();
 }
 

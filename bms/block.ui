@@ -13,32 +13,18 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>180</x>
-     <y>160</y>
+     <y>260</y>
      <width>451</width>
-     <height>231</height>
+     <height>131</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout_2">
     <item>
      <layout class="QVBoxLayout" name="verticalLayout">
-      <item>
-       <layout class="QHBoxLayout" name="horizontalLayout">
-        <item>
-         <widget class="QLabel" name="label">
-          <property name="text">
-           <string>Blocks</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QComboBox" name="block_show"/>
-        </item>
-       </layout>
-      </item>
       <item>
        <layout class="QHBoxLayout" name="horizontalLayout_2">
         <item>

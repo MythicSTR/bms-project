@@ -45,6 +45,8 @@ void block::on_block_add_clicked()
     }
 
     collegedbClose();
+
+    ui->block_new->clear();
 }
 
 
@@ -54,34 +56,7 @@ void block::on_block_exit_clicked()
     this->hide();
 }
 
-//class ComboBox: public QComboBox
-//{
-//    Q_OBJECT
-//public:
-//    using QComboBox::QComboBox;
-//signals:
-//    void clicked();
-//protected:
-//    void mousePressEvent(QMouseEvent *event) override{
-//        QComboBox::mousePressEvent(event);
-//        QStyleOptionComboBox opt;
-//        initStyleOption(&opt);
-//        QStyle::SubControl sc = style()->hitTestComplexControl(QStyle::CC_ComboBox, &opt, event->pos(), this);
-//        if(sc == QStyle::SC_ComboBoxArrow)
-//            emit clicked();
-//    }
-//};
 
 
-void block::on_block_show_activated(int index)      //not working currently
-{
-    QSqlQueryModel *modal = new QSqlQueryModel();
-    collegedbOpen();
-    QSqlQuery qry;
-    qry.prepare("select * from block");
-    qry.exec();
-    modal->setQuery(qry);
-    ui->block_show->setModel(modal);
-    collegedbClose();
-}
+
 

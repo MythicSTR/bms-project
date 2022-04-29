@@ -17,6 +17,7 @@ SOURCES += \
     professorwindow.cpp \
     student.cpp \
     studentwindow.cpp \
+    update_professor.cpp \
     view_professor.cpp \
     view_student.cpp
 
@@ -29,6 +30,7 @@ HEADERS += \
     professorwindow.h \
     student.h \
     studentwindow.h \
+    update_professor.h \
     view_professor.h \
     view_student.h
 
@@ -40,6 +42,7 @@ FORMS += \
     professorwindow.ui \
     student.ui \
     studentwindow.ui \
+    update_professor.ui \
     view_professor.ui \
     view_student.ui
 
