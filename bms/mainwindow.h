@@ -5,6 +5,7 @@
 #include <QtSql>
 #include <QFile>
 #include <string>
+#include "database.h"
 
 namespace Ui {
 class MainWindow;
@@ -14,7 +15,6 @@ class MainWindow : public QMainWindow
 {
     Q_OBJECT
 
-public:
     QSqlDatabase reservations;
     QSqlDatabase collegedb;
 
@@ -42,6 +42,7 @@ public:
 
     bool collegedbOpen() {
         QString path = QDir::currentPath() + "/../bms/data/college.db";
+       // QString path = "/Users/panda/Documents/project-official/bms-project/bms/data/college.db";
         collegedb = QSqlDatabase::addDatabase("QSQLITE");
         collegedb.setDatabaseName(path);
 
@@ -58,6 +59,8 @@ public:
         collegedb.close();
         collegedb.removeDatabase("connectionName");
     }
+
+public:
 
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
@@ -77,9 +80,16 @@ private slots:
 
     void on_routine_show_clicked();
 
-    void on_pushButton_clicked();
+    void on_add_professor_clicked();
 
-    void on_pushButton_2_clicked();
+    void on_add_student_clicked();
+
+
+    void on_add_block_clicked();
+
+    void on_view_professor_clicked();
+
+    void on_view_student_clicked();
 
 private:
     Ui::MainWindow *ui;

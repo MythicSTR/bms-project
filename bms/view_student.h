@@ -1,16 +1,16 @@
-#ifndef STUDENT_H
-#define STUDENT_H
-
+#ifndef VIEW_STUDENT_H
+#define VIEW_STUDENT_H
+#include <QtSql>
 #include <QDialog>
-#include "database.h"
 
 namespace Ui {
-class student;
+class view_student;
 }
 
-class student : public QDialog
+class view_student : public QDialog
 {
     Q_OBJECT
+
     QSqlDatabase reservations;
     QSqlDatabase collegedb;
 
@@ -38,7 +38,7 @@ class student : public QDialog
 
     bool collegedbOpen() {
         QString path = QDir::currentPath() + "/../bms/data/college.db";
-      //  QString path = "/Users/panda/Documents/project-official/bms-project/bms/data/college.db";
+     //   QString path = "/Users/panda/Documents/project-official/bms-project/bms/data/college.db";
         collegedb = QSqlDatabase::addDatabase("QSQLITE");
         collegedb.setDatabaseName(path);
 
@@ -57,17 +57,14 @@ class student : public QDialog
     }
 
 public:
-    explicit student(QWidget *parent = nullptr);
-    ~student();
+    explicit view_student(QWidget *parent = nullptr);
+    ~view_student();
 
 private slots:
-
-  void on_cs_create_clicked();
-
-  void on_cs_exit_clicked();
+    void on_vs_load_clicked();
 
 private:
-    Ui::student *ui;
+    Ui::view_student *ui;
 };
 
-#endif // STUDENT_H
+#endif // VIEW_STUDENT_H

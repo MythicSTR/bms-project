@@ -1,16 +1,16 @@
-#ifndef STUDENT_H
-#define STUDENT_H
-
+#ifndef VIEW_PROFESSOR_H
+#define VIEW_PROFESSOR_H
+#include <QtSql>
 #include <QDialog>
-#include "database.h"
 
 namespace Ui {
-class student;
+class view_professor;
 }
 
-class student : public QDialog
+class view_professor : public QDialog
 {
     Q_OBJECT
+
     QSqlDatabase reservations;
     QSqlDatabase collegedb;
 
@@ -57,17 +57,16 @@ class student : public QDialog
     }
 
 public:
-    explicit student(QWidget *parent = nullptr);
-    ~student();
+    explicit view_professor(QWidget *parent = nullptr);
+    ~view_professor();
 
 private slots:
 
-  void on_cs_create_clicked();
 
-  void on_cs_exit_clicked();
+    void on_vp_load_clicked();
 
 private:
-    Ui::student *ui;
+    Ui::view_professor *ui;
 };
 
-#endif // STUDENT_H
+#endif // VIEW_PROFESSOR_H
