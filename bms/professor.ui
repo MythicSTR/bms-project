@@ -13,13 +13,13 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <widget class="QWidget" name="layoutWidget">
+  <widget class="QWidget" name="">
    <property name="geometry">
     <rect>
      <x>270</x>
-     <y>70</y>
-     <width>611</width>
-     <height>421</height>
+     <y>71</y>
+     <width>411</width>
+     <height>341</height>
     </rect>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout">
@@ -28,12 +28,12 @@
       <item>
        <widget class="QLabel" name="label">
         <property name="text">
-         <string>Username</string>
+         <string>Name</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QLineEdit" name="lineEdit">
+       <widget class="QLineEdit" name="cp_name">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Minimum" vsizetype="Maximum">
           <horstretch>0</horstretch>
@@ -55,12 +55,12 @@
       <item>
        <widget class="QLabel" name="label_2">
         <property name="text">
-         <string>Password</string>
+         <string>Username</string>
         </property>
        </widget>
       </item>
       <item>
-       <widget class="QLineEdit" name="lineEdit_2">
+       <widget class="QLineEdit" name="cp_username">
         <property name="sizePolicy">
          <sizepolicy hsizetype="Minimum" vsizetype="Maximum">
           <horstretch>0</horstretch>
@@ -78,15 +78,133 @@
      </layout>
     </item>
     <item>
-     <layout class="QHBoxLayout" name="horizontalLayout_3"/>
+     <layout class="QHBoxLayout" name="horizontalLayout_3">
+      <item>
+       <widget class="QLabel" name="label_3">
+        <property name="text">
+         <string>Password</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QLineEdit" name="cp_pwd">
+        <property name="enabled">
+         <bool>true</bool>
+        </property>
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Minimum" vsizetype="Maximum">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>40</height>
+         </size>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+        </property>
+       </widget>
+      </item>
+     </layout>
     </item>
     <item>
-     <layout class="QHBoxLayout" name="horizontalLayout_4"/>
+     <layout class="QHBoxLayout" name="horizontalLayout_4">
+      <item>
+       <widget class="QLabel" name="label_4">
+        <property name="text">
+         <string>Department</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QComboBox" name="cp_dept">
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Minimum" vsizetype="Maximum">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <item>
+         <property name="text">
+          <string>Department of Computer Science and Engineering</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Department of Mechanical Engineering</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Department of Environmental Science and Engineering</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Department of Life Sciences</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Department of Mathematics</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Department of Physics</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Department of Chemical Science and Engineering</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Department of Geometics Engineering</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Department of Civil Engineering</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Department of Architecture</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Department of Pharmacy</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Department of Biotechnology</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Department of Electrical and Electronics Engineering</string>
+         </property>
+        </item>
+        <item>
+         <property name="text">
+          <string>Department of Management</string>
+         </property>
+        </item>
+       </widget>
+      </item>
+     </layout>
     </item>
     <item>
      <layout class="QHBoxLayout" name="horizontalLayout_5">
       <item>
-       <widget class="QPushButton" name="pushButton">
+       <widget class="QPushButton" name="cp_create">
         <property name="minimumSize">
          <size>
           <width>0</width>
@@ -99,7 +217,7 @@
        </widget>
       </item>
       <item>
-       <widget class="QPushButton" name="pushButton_2">
+       <widget class="QPushButton" name="cp_exit">
         <property name="minimumSize">
          <size>
           <width>0</width>

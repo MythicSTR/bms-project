@@ -1,4 +1,5 @@
 #include "mainwindow.h"
+#include "database.h"
 #include <QIODevice>
 #include <QDir>
 #include "ui_mainwindow.h"
@@ -9,6 +10,9 @@
 #include <string>
 #include "student.h"
 #include "professor.h"
+#include "block.h"
+#include "view_professor.h"
+#include "view_student.h"
 
 //check if room is available in given time : from reservations.db
 bool room_available(int a_start, int a_end, int start, int end) {
@@ -520,18 +524,46 @@ void MainWindow::on_routine_show_clicked()
 }
 
 
-void MainWindow::on_pushButton_clicked()
+void MainWindow::on_add_professor_clicked()
 {
-   student student;
-   student.setModal(true);
-   student.exec();
+            Professor professor;
+            professor.setModal(true);
+            professor.exec();
 }
 
 
-void MainWindow::on_pushButton_2_clicked()
+
+
+void MainWindow::on_add_student_clicked()
 {
-    Professor professor;
-    professor.setModal(true);
-    professor.exec();
+           student student;
+           student.setModal(true);
+           student.exec();
+}
+
+
+
+
+void MainWindow::on_add_block_clicked()
+{
+    block block;
+    block.setModal(true);
+    block.exec();
+}
+
+
+void MainWindow::on_view_professor_clicked()
+{
+    view_professor vp;
+    vp.setModal(true);
+    vp.exec();
+}
+
+
+void MainWindow::on_view_student_clicked()
+{
+    view_student vs;
+    vs.setModal(true);
+    vs.exec();
 }
 
