@@ -14,7 +14,9 @@ SOURCES += \
     loginwindow.cpp \
     mainwindow.cpp \
     professor.cpp \
+    professorwindow.cpp \
     student.cpp \
+    studentwindow.cpp \
     view_professor.cpp \
     view_student.cpp
 
@@ -24,7 +26,9 @@ HEADERS += \
     loginwindow.h \
     mainwindow.h \
     professor.h \
+    professorwindow.h \
     student.h \
+    studentwindow.h \
     view_professor.h \
     view_student.h
 
@@ -33,7 +37,9 @@ FORMS += \
     loginwindow.ui \
     mainwindow.ui \
     professor.ui \
+    professorwindow.ui \
     student.ui \
+    studentwindow.ui \
     view_professor.ui \
     view_student.ui
 
