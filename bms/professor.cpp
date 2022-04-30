@@ -35,6 +35,10 @@ void Professor::on_cp_create_clicked()                  //cp -> create professor
         QMessageBox::warning(this,"Failure","Can not store the information in the database");
     }
     collegedbClose();
+
+    ui->cp_name->clear();
+    ui->cp_username->clear();
+    ui->cp_pwd->clear();
 }
 
 

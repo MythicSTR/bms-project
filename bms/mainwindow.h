@@ -20,8 +20,8 @@ class MainWindow : public QMainWindow
 
     //to open the database : reservations.db
     bool reservationsOpen() {
-        QString path = QDir::currentPath() + "/../bms/data/reservations.db";
-        //QString path = "/Users/panda/Documents/project-official/bms-project/bms/data/reservations.db";
+        //QString path = QDir::currentPath() + "/../bms/data/reservations.db";
+        QString path = "/Users/panda/Documents/project-official/bms-project/bms/data/reservations.db";
         reservations = QSqlDatabase::addDatabase("QSQLITE");
         reservations.setDatabaseName(path);
 
@@ -41,8 +41,8 @@ class MainWindow : public QMainWindow
     };
 
     bool collegedbOpen() {
-        QString path = QDir::currentPath() + "/../bms/data/college.db";
-       // QString path = "/Users/panda/Documents/project-official/bms-project/bms/data/college.db";
+       // QString path = QDir::currentPath() + "/../bms/data/college.db";
+       QString path = "/Users/panda/Documents/project-official/bms-project/bms/data/college.db";
         collegedb = QSqlDatabase::addDatabase("QSQLITE");
         collegedb.setDatabaseName(path);
 
@@ -90,6 +90,10 @@ private slots:
     void on_view_professor_clicked();
 
     void on_view_student_clicked();
+
+    //void on_update_student_clicked();
+
+    void on_update_professor_clicked();
 
 private:
     Ui::MainWindow *ui;
