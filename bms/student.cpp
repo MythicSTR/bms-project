@@ -21,7 +21,9 @@ void student::on_cs_create_clicked()
     QString username = ui->as_username->text();
     QString pwd = ui->as_pwd->text();
     QString sem = ui->as_semester->currentText();
+    //int sem = _sem.toInt();
     QString year = ui->as_year->currentText();
+    //int year = _year.toInt();
     QString faculty = ui->as_faculty->text();
 
     collegedbOpen();
