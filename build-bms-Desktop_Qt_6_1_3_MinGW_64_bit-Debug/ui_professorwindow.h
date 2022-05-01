@@ -33,7 +33,7 @@ public:
     QWidget *tab;
     QTabWidget *tabWidget_2;
     QWidget *tab_2;
-    QWidget *widget;
+    QWidget *layoutWidget;
     QVBoxLayout *verticalLayout_2;
     QHBoxLayout *horizontalLayout_9;
     QHBoxLayout *horizontalLayout;
@@ -44,12 +44,12 @@ public:
     QComboBox *pw_year;
     QHBoxLayout *horizontalLayout_3;
     QLabel *label_3;
-    QComboBox *pw_sem;
+    QComboBox *pw_semester;
     QHBoxLayout *horizontalLayout_4;
     QLabel *label_4;
     QComboBox *pw_day_2;
     QTableView *pw_table;
-    QPushButton *pushButton;
+    QPushButton *pw_show_2;
     QWidget *tab_3;
     QGroupBox *groupBox_2;
     QVBoxLayout *verticalLayout;
@@ -93,22 +93,22 @@ public:
         tabWidget_2->setTabPosition(QTabWidget::West);
         tab_2 = new QWidget();
         tab_2->setObjectName(QString::fromUtf8("tab_2"));
-        widget = new QWidget(tab_2);
-        widget->setObjectName(QString::fromUtf8("widget"));
-        widget->setGeometry(QRect(10, 0, 1111, 721));
-        verticalLayout_2 = new QVBoxLayout(widget);
+        layoutWidget = new QWidget(tab_2);
+        layoutWidget->setObjectName(QString::fromUtf8("layoutWidget"));
+        layoutWidget->setGeometry(QRect(10, 0, 1111, 721));
+        verticalLayout_2 = new QVBoxLayout(layoutWidget);
         verticalLayout_2->setObjectName(QString::fromUtf8("verticalLayout_2"));
         verticalLayout_2->setContentsMargins(0, 0, 0, 0);
         horizontalLayout_9 = new QHBoxLayout();
         horizontalLayout_9->setObjectName(QString::fromUtf8("horizontalLayout_9"));
         horizontalLayout = new QHBoxLayout();
         horizontalLayout->setObjectName(QString::fromUtf8("horizontalLayout"));
-        label = new QLabel(widget);
+        label = new QLabel(layoutWidget);
         label->setObjectName(QString::fromUtf8("label"));
 
         horizontalLayout->addWidget(label);
 
-        pw_faculty = new QComboBox(widget);
+        pw_faculty = new QComboBox(layoutWidget);
         pw_faculty->setObjectName(QString::fromUtf8("pw_faculty"));
         QSizePolicy sizePolicy1(QSizePolicy::Maximum, QSizePolicy::Maximum);
         sizePolicy1.setHorizontalStretch(1);
@@ -123,7 +123,7 @@ public:
 
         horizontalLayout_2 = new QHBoxLayout();
         horizontalLayout_2->setObjectName(QString::fromUtf8("horizontalLayout_2"));
-        label_2 = new QLabel(widget);
+        label_2 = new QLabel(layoutWidget);
         label_2->setObjectName(QString::fromUtf8("label_2"));
         QSizePolicy sizePolicy2(QSizePolicy::Minimum, QSizePolicy::Preferred);
         sizePolicy2.setHorizontalStretch(0);
@@ -133,7 +133,7 @@ public:
 
         horizontalLayout_2->addWidget(label_2);
 
-        pw_year = new QComboBox(widget);
+        pw_year = new QComboBox(layoutWidget);
         pw_year->addItem(QString());
         pw_year->addItem(QString());
         pw_year->addItem(QString());
@@ -147,29 +147,29 @@ public:
 
         horizontalLayout_3 = new QHBoxLayout();
         horizontalLayout_3->setObjectName(QString::fromUtf8("horizontalLayout_3"));
-        label_3 = new QLabel(widget);
+        label_3 = new QLabel(layoutWidget);
         label_3->setObjectName(QString::fromUtf8("label_3"));
 
         horizontalLayout_3->addWidget(label_3);
 
-        pw_sem = new QComboBox(widget);
-        pw_sem->addItem(QString());
-        pw_sem->addItem(QString());
-        pw_sem->setObjectName(QString::fromUtf8("pw_sem"));
+        pw_semester = new QComboBox(layoutWidget);
+        pw_semester->addItem(QString());
+        pw_semester->addItem(QString());
+        pw_semester->setObjectName(QString::fromUtf8("pw_semester"));
 
-        horizontalLayout_3->addWidget(pw_sem);
+        horizontalLayout_3->addWidget(pw_semester);
 
 
         horizontalLayout_9->addLayout(horizontalLayout_3);
 
         horizontalLayout_4 = new QHBoxLayout();
         horizontalLayout_4->setObjectName(QString::fromUtf8("horizontalLayout_4"));
-        label_4 = new QLabel(widget);
+        label_4 = new QLabel(layoutWidget);
         label_4->setObjectName(QString::fromUtf8("label_4"));
 
         horizontalLayout_4->addWidget(label_4);
 
-        pw_day_2 = new QComboBox(widget);
+        pw_day_2 = new QComboBox(layoutWidget);
         pw_day_2->addItem(QString());
         pw_day_2->addItem(QString());
         pw_day_2->addItem(QString());
@@ -186,15 +186,15 @@ public:
 
         verticalLayout_2->addLayout(horizontalLayout_9);
 
-        pw_table = new QTableView(widget);
+        pw_table = new QTableView(layoutWidget);
         pw_table->setObjectName(QString::fromUtf8("pw_table"));
 
         verticalLayout_2->addWidget(pw_table);
 
-        pushButton = new QPushButton(widget);
-        pushButton->setObjectName(QString::fromUtf8("pushButton"));
+        pw_show_2 = new QPushButton(layoutWidget);
+        pw_show_2->setObjectName(QString::fromUtf8("pw_show_2"));
 
-        verticalLayout_2->addWidget(pushButton);
+        verticalLayout_2->addWidget(pw_show_2);
 
         tabWidget_2->addTab(tab_2, QString());
         tab_3 = new QWidget();
@@ -352,7 +352,7 @@ public:
         retranslateUi(professorwindow);
 
         tabWidget->setCurrentIndex(0);
-        tabWidget_2->setCurrentIndex(0);
+        tabWidget_2->setCurrentIndex(2);
 
 
         QMetaObject::connectSlotsByName(professorwindow);
@@ -369,8 +369,8 @@ public:
         pw_year->setItemText(3, QCoreApplication::translate("professorwindow", "4th", nullptr));
 
         label_3->setText(QCoreApplication::translate("professorwindow", "Semester", nullptr));
-        pw_sem->setItemText(0, QCoreApplication::translate("professorwindow", "1st", nullptr));
-        pw_sem->setItemText(1, QCoreApplication::translate("professorwindow", "2nd", nullptr));
+        pw_semester->setItemText(0, QCoreApplication::translate("professorwindow", "1st", nullptr));
+        pw_semester->setItemText(1, QCoreApplication::translate("professorwindow", "2nd", nullptr));
 
         label_4->setText(QCoreApplication::translate("professorwindow", "Day", nullptr));
         pw_day_2->setItemText(0, QCoreApplication::translate("professorwindow", "Sunday", nullptr));
@@ -380,7 +380,7 @@ public:
         pw_day_2->setItemText(4, QCoreApplication::translate("professorwindow", "Thursday", nullptr));
         pw_day_2->setItemText(5, QCoreApplication::translate("professorwindow", "Friday", nullptr));
 
-        pushButton->setText(QCoreApplication::translate("professorwindow", "Show", nullptr));
+        pw_show_2->setText(QCoreApplication::translate("professorwindow", "Show", nullptr));
         tabWidget_2->setTabText(tabWidget_2->indexOf(tab_2), QCoreApplication::translate("professorwindow", "Routine", nullptr));
         groupBox_2->setTitle(QString());
         label_5->setText(QCoreApplication::translate("professorwindow", "Block", nullptr));
