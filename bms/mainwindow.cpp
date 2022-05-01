@@ -1,5 +1,4 @@
 #include "mainwindow.h"
-#include "database.h"
 #include <QIODevice>
 #include <QDir>
 #include "ui_mainwindow.h"
@@ -7,6 +6,7 @@
 #include <QMessageBox>
 #include <QFileDialog>
 #include <QPixmap>
+#include <QDebug>
 #include <string>
 #include "student.h"
 #include "professor.h"
@@ -569,25 +569,31 @@ void MainWindow::on_view_student_clicked()
 }
 
 
-//void MainWindow::on_update_student_clicked()
-//{
-//     QMessageBox::StandardButton reply = QMessageBox::question(this,"Confirmation","Semester of all the students will be updated by one. Do you want to confirm it ?",QMessageBox::Yes|QMessageBox::No,QMessageBox::Yes);
-//     if(reply==QMessageBox::Yes)
-//     {
-//         collegedbOpen();
-//         QSqlQuery qry;
-//         qry.prepare("select year,semester from student where semester='II'");
-//         if(qry.exec())
-//         {
+void MainWindow::on_update_student_clicked()
+{
 
-//         }
 
-//     }
-//     else
-//     {
-//         QMessageBox::information(this,"Terminated","Student information update process terminated");
-//     }
-//}
+     QMessageBox::StandardButton reply = QMessageBox::question(this,"Confirmation","Semester of all the students will be updated by one. Do you want to confirm it ?",QMessageBox::Yes|QMessageBox::No,QMessageBox::Yes);
+     if(reply==QMessageBox::Yes)
+     {
+         collegedbOpen();
+         QSqlQuery qry;
+         qry.prepare("update student set semester=semester+1 ");
+         if(qry.exec())
+         {
+                qDebug() << "thik cha";
+                qry.prepare("update student set year=year+1,semester=1 where semester=3 ");
+                if(qry.exec())
+                {
+                   QMessageBox::information(this,"Sucess","Sucessfully updated");
+                }
+        }
+     }
+     else
+     {
+         QMessageBox::information(this,"Terminated","Student information update process terminated");
+     }
+}
 
 
 void MainWindow::on_update_professor_clicked()

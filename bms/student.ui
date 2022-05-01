@@ -13,7 +13,7 @@
   <property name="windowTitle">
    <string>Dialog</string>
   </property>
-  <widget class="QWidget" name="">
+  <widget class="QWidget" name="layoutWidget">
    <property name="geometry">
     <rect>
      <x>231</x>
@@ -156,22 +156,22 @@
         </property>
         <item>
          <property name="text">
-          <string>I</string>
+          <string>1</string>
          </property>
         </item>
         <item>
          <property name="text">
-          <string>II</string>
+          <string>2</string>
          </property>
         </item>
         <item>
          <property name="text">
-          <string>III</string>
+          <string>3</string>
          </property>
         </item>
         <item>
          <property name="text">
-          <string>Iv</string>
+          <string>4</string>
          </property>
         </item>
        </widget>
@@ -197,12 +197,12 @@
         </property>
         <item>
          <property name="text">
-          <string>I</string>
+          <string>1</string>
          </property>
         </item>
         <item>
          <property name="text">
-          <string>II</string>
+          <string>2</string>
          </property>
         </item>
        </widget>
