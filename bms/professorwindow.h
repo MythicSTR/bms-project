@@ -39,13 +39,15 @@ class professorwindow : public QDialog
     };
 
 public:
-    explicit professorwindow(QWidget *parent = nullptr);
+    explicit professorwindow(QWidget *parent = nullptr, QString prof_username = nullptr);
     ~professorwindow();
 
 private slots:
     void on_pw_show_2_clicked();
 
     void on_pw_show_clicked();
+
+    void on_request_button_clicked();
 
 private:
     Ui::professorwindow *ui;

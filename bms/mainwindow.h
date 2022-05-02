@@ -94,6 +94,14 @@ private slots:
 
     void on_update_professor_clicked();
 
+    void on_load_request_clicked();
+
+    void on_req_tableview_activated(const QModelIndex &index);
+
+    void on_req_reserve_clicked();
+
+    void on_req_delete_clicked();
+
 private:
     Ui::MainWindow *ui;
 };

@@ -13,7 +13,7 @@ class LogInWindow : public QMainWindow
     Q_OBJECT
 
 public:
-    LogInWindow(QWidget *parent = nullptr);
+    LogInWindow(QWidget *parent = nullptr, QString username = nullptr);
     ~LogInWindow();
 
 private slots:

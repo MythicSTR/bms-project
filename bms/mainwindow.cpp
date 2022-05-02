@@ -603,3 +603,156 @@ void MainWindow::on_update_professor_clicked()
     up.exec();
 }
 
+
+void MainWindow::on_load_request_clicked()
+{
+    reservationsOpen();
+    QSqlQueryModel * requests = new QSqlQueryModel();
+    QSqlQuery * qry = new QSqlQuery(reservations);
+
+    qry->prepare("select * from request");
+
+    qry->exec();
+    requests->setQuery(*qry);
+    requests->setHeaderData(0, Qt::Horizontal, QObject::tr("Faculty"));
+    requests->setHeaderData(1, Qt::Horizontal, QObject::tr("Year"));
+    requests->setHeaderData(2, Qt::Horizontal, QObject::tr("Semester"));
+    requests->setHeaderData(3, Qt::Horizontal, QObject::tr("Day"));
+    requests->setHeaderData(4, Qt::Horizontal, QObject::tr("Start"));
+    requests->setHeaderData(5, Qt::Horizontal, QObject::tr("End"));
+    requests->setHeaderData(6, Qt::Horizontal, QObject::tr("Block"));
+    requests->setHeaderData(7, Qt::Horizontal, QObject::tr("Room"));
+    requests->setHeaderData(8, Qt::Horizontal, QObject::tr("Subject"));
+    requests->setHeaderData(9, Qt::Horizontal, QObject::tr("Professor"));
+
+
+    ui->req_tableview->setModel(requests);
+    ui->req_tableview->horizontalHeader()->setStretchLastSection(true);
+    ui->req_tableview->setColumnWidth(5, 240);
+    ui->req_tableview->setColumnWidth(8, 240);
+    ui->req_tableview->setSelectionMode(QAbstractItemView::SingleSelection);
+    ui->req_tableview->setSelectionBehavior(QAbstractItemView::SelectRows);
+    reservationsClose();
+    qDebug() << requests->rowCount();
+}
+
+
+void MainWindow::on_req_tableview_activated(const QModelIndex &index)
+{
+    QString val = ui->req_tableview->model()->data(index).toString();
+
+    reservationsOpen();
+
+    QSqlQuery qry;
+    qry.prepare("select * from request where faculty='"+val+"' or year='"+val+"' or semester='"+val+"' or day='"+val+"' or start='"+val+"' or end='"+val+"' or block='"+val+"' or room='"+val+"' or subject='"+val+"' or professor='"+val+"'");
+
+    if(qry.exec()) {
+        while(qry.next()) {
+            ui->req_faculty->setText(qry.value(0).toString());
+            ui->req_year->setText(qry.value(1).toString());
+            ui->req_semester->setText(qry.value(2).toString());
+            ui->req_day->setText(qry.value(3).toString());
+            ui->req_start->setText(qry.value(4).toString());
+            ui->req_end->setText(qry.value(5).toString());
+            ui->req_block->setText(qry.value(6).toString());
+            ui->req_room->setText(qry.value(7).toString());
+            ui->req_subject->setText(qry.value(8).toString());
+            ui->req_professor->setText(qry.value(9).toString());
+        }
+    }
+
+    reservationsClose();
+}
+
+void MainWindow::on_req_reserve_clicked()
+{
+    QString block = ui->req_block->text();
+    QString room = ui->req_room->text();
+    QString faculty = ui->req_faculty->text();
+    QString year = ui->req_year->text();
+    QString semester = ui->req_semester->text();
+    QString start = ui->req_start->text();
+    QString end = ui->req_end->text();
+    QString day = ui->req_day->text();
+    QString professor = ui->req_professor->text();
+    QString subject = ui->req_subject->text();
+    QString status = "Reserved";
+    QString req_day = ui->req_day->text();
+
+    reservationsOpen();     //open and connect to reservations.db
+    QSqlQuery qry;
+    qry.prepare("select start,end from '"+req_day+"' where block='"+block+"' and room='"+room+"'");   //prepare a query to search the reserved room from the database
+    if(qry.exec()) {
+        int check_count = 1;
+        while(qry.next()) {
+            qDebug() << "(" << check_count++ << ")" << "Checking...";
+            int a_start = qry.value(0).toInt();
+            int a_end = qry.value(1).toInt();
+            if(room_available(a_start, a_end, start.toInt(), end.toInt())) {
+                continue;
+            } else {
+                qDebug() << "Cannot Reserve! Exiting!";
+                QMessageBox::information(this, "Request", "Cannot complete the request");
+                return;
+            }
+        }
+        //if room is available
+        qry.prepare("delete from '"+req_day+"' where block = '"+block+"' and room = '"+room+"' and faculty = '"+faculty+"' and year = '"+year+"' and semester = '"+semester+"' and day = '"+day+"' and professor = '"+professor+"' and subject = '"+subject+"'");
+        qry.exec();
+        qry.prepare("insert into '"+req_day+"' (block,room,start,end,status,faculty,year,semester,professor,subject) values ('"+block+"','"+room+"','"+start+"','"+end+"','"+status+"','"+faculty+"','"+year+"','"+semester+"','"+professor+"','"+subject+"')");
+        if(qry.exec()) {
+            qDebug() << "Room available. Writing to the database.";
+            QMessageBox::information(this, "Request", "Successfully reserved the requested class");
+            QSqlQuery qry;
+            qry.prepare("delete from request where block = '"+block+"' and room = '"+room+"' and faculty = '"+faculty+"' and year = '"+year+"' and semester = '"+semester+"' and start = '"+start+"' and end = '"+end+"' and day = '"+day+"' and professor = '"+professor+"' and subject = '"+subject+"'");
+            qry.exec();
+        } else qDebug() << "Couldn't execute the query to book the room!";
+    } else {    //if no entry is found in the database
+        qDebug() << "No entries for the data. Creating a new entry...";
+        qry.prepare("delete from '"+req_day+"' where block = '"+block+"' and room = '"+room+"' and faculty = '"+faculty+"' and year = '"+year+"' and semester = '"+semester+"' and day = '"+day+"' and professor = '"+professor+"' and subject = '"+subject+"'");
+        qry.exec();
+        qry.prepare("insert into '"+req_day+"' (block,room,start,end,status,faculty,year,semester,professor,subject) values ('"+block+"','"+room+"','"+start+"','"+end+"','"+status+"','"+faculty+"','"+year+"','"+semester+"','"+professor+"','"+subject+"')");
+        if(qry.exec()) {
+            qDebug() << "Created a new entry to the database.";
+            QMessageBox::information(this, "Request", "Successfully reserved the requested class");
+            QSqlQuery qry;
+            qry.prepare("delete from request where block = '"+block+"' and room = '"+room+"' and faculty = '"+faculty+"' and year = '"+year+"' and semester = '"+semester+"' and start = '"+start+"' and end = '"+end+"' and day = '"+day+"' and professor = '"+professor+"' and subject = '"+subject+"'");
+            qry.exec();
+            qry.prepare("delete from '"+req_day+"' where block = '"+block+"' and room = '"+room+"' and faculty = '"+faculty+"' and year = '"+year+"' and semester = '"+semester+"' and start = '"+start+"' and end = '"+end+"' and day = '"+day+"' and professor = '"+professor+"' and subject = '"+subject+"'");
+            qry.exec();
+        } else {
+            qDebug() << "Couldn't create a new entry to the database!";
+        }
+    }
+    reservationsClose();    //close the connection to reservations.db
+    MainWindow::on_load_request_clicked();
+}
+
+
+void MainWindow::on_req_delete_clicked()
+{
+    QString block = ui->req_block->text();
+    QString room = ui->req_room->text();
+    QString faculty = ui->req_faculty->text();
+    QString year = ui->req_year->text();
+    QString semester = ui->req_semester->text();
+    QString start = ui->req_start->text();
+    QString end = ui->req_end->text();
+    QString professor = ui->req_professor->text();
+    QString subject = ui->req_subject->text();
+    QString req_day = ui->req_day->text();
+
+    reservationsOpen();
+
+    QSqlQuery qry;
+    qry.prepare("delete from request where day='"+req_day+"' and block = '"+block+"' and room = '"+room+"' and faculty = '"+faculty+"' and year = '"+year+"' and semester = '"+semester+"' and start = '"+start+"' and end = '"+end+"' and professor = '"+professor+"' and subject = '"+subject+"'");
+    if(qry.exec()) {
+        QMessageBox::information(this, "Delete", "Successfully deleted request!");
+    } else {
+        QMessageBox::information(this, "Delete", "Failed to delete request");
+    }
+    reservationsClose();
+
+    MainWindow::on_load_request_clicked();
+}
+

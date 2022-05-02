@@ -1,15 +1,34 @@
 #include "professorwindow.h"
 #include "ui_professorwindow.h"
-#include "database.h"
 #include <QIODevice>
 #include<QMessageBox>
 #include <QFileDialog>
 
-professorwindow::professorwindow(QWidget *parent) :
+QString professor;
+professorwindow::professorwindow(QWidget *parent, QString prof_username) :
     QDialog(parent),
     ui(new Ui::professorwindow)
 {
     ui->setupUi(this);
+    QFile faculty(":/resources/data/faculty.txt");
+    QTextStream faculty_stream(&faculty);
+    QString line;
+    if (faculty.open(QFile::ReadOnly | QFile::Text)) {
+       while (!faculty_stream.atEnd())
+       {
+          line = faculty_stream.readLine();
+          ui->req_faculty->addItem(line);
+          ui->pw_faculty->addItem(line);
+       }
+       faculty_stream.flush(); faculty.close();
+    }
+
+    QSqlQuery qry;
+    qry.prepare("select name where username='"+prof_username+"'");
+    qry.exec();
+    while(qry.next()) {
+        professor = qry.value(0).toString();
+    }
 }
 
 professorwindow::~professorwindow()
@@ -82,5 +101,26 @@ void professorwindow::on_pw_show_clicked()
                       }
                       reservationsClose();
 
+}
+
+
+void professorwindow::on_request_button_clicked()
+{
+    QString block = ui->req_block->currentText();
+    QString room = ui->req_room->text();
+    QString day = ui->req_day->currentText();
+    QString start = ui->req_start_time->currentText();
+    QString end = ui->req_end_time->currentText();
+    QString faculty = ui->req_faculty->currentText();
+    QString year = ui->req_year->currentText();
+    QString semester = ui->req_semester->currentText();
+    QString subject = ui->req_subject->text();
+    reservationsOpen();
+    QSqlQuery qry;
+    qry.prepare("insert into request (faculty,year,semester,day,start,end,block,room,subject,professor) values ('"+faculty+"','"+year+"','"+semester+"','"+day+"','"+start+"','"+end+"','"+block+"','"+room+"','"+subject+"','"+professor+"')");
+    if(qry.exec()) {
+        QMessageBox::information(this, "Request", "Successfully requested a classroom");
+    }
+    reservationsClose();
 }
 

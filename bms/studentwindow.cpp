@@ -1,6 +1,5 @@
 #include "studentwindow.h"
 #include "ui_studentwindow.h"
-#include "database.h"
 
 studentwindow::studentwindow(QWidget *parent) :
     QDialog(parent),
