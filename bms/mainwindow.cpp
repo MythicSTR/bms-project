@@ -55,6 +55,19 @@ MainWindow::MainWindow(QWidget *parent) :
             ui->rev_professor->addItem(qry.value(0).toString());
             ui->ps_name->addItem(qry.value(0).toString());
             ui->ov_professor->addItem(qry.value(0).toString());
+
+        }
+    }
+
+    qry.prepare("select * from block");
+    if(qry.exec()) {
+        while(qry.next()) {
+            ui->ov_block->addItem(qry.value(0).toString());
+            ui->rev_block_no->addItem(qry.value(0).toString());
+            ui->sw_from_block->addItem(qry.value(0).toString());
+            ui->sw_to_block->addItem(qry.value(0).toString());
+            ui->cs_block->addItem(qry.value(0).toString());
+            ui->del_block->addItem(qry.value(0).toString());
         }
     }
     collegedbClose();

@@ -23,12 +23,24 @@ professorwindow::professorwindow(QWidget *parent, QString prof_username) :
        faculty_stream.flush(); faculty.close();
     }
 
+    collegedbOpen();
+
     QSqlQuery qry;
-    qry.prepare("select name where username='"+prof_username+"'");
+    qry.prepare("select name from professor where username='"+prof_username+"'");
     qry.exec();
     while(qry.next()) {
         professor = qry.value(0).toString();
     }
+
+    qry.prepare("select * from block");
+    if(qry.exec()) {
+        while(qry.next()) {
+            ui->pw_block->addItem(qry.value(0).toString());
+            ui->req_block->addItem(qry.value(0).toString());
+        }
+    }
+
+    collegedbClose();
 }
 
 professorwindow::~professorwindow()
@@ -61,6 +73,12 @@ void professorwindow::on_pw_show_2_clicked()
     routine_modal->setHeaderData(1, Qt::Horizontal, QObject::tr("End"));
     routine_modal->setHeaderData(2, Qt::Horizontal, QObject::tr("Subject"));
 
+    ui->pw_table->setModel(routine_modal);
+    ui->pw_table->horizontalHeader()->setStretchLastSection(true);
+    ui->pw_table->setColumnWidth(5, 240);
+    ui->pw_table->setColumnWidth(8, 240);
+    ui->pw_table->setSelectionMode(QAbstractItemView::SingleSelection);
+    ui->pw_table->setSelectionBehavior(QAbstractItemView::SelectRows);
     reservationsClose();
 }
 
