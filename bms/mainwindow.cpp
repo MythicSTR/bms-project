@@ -515,12 +515,20 @@ void MainWindow::on_routine_show_clicked()
     QSqlQuery * qry = new QSqlQuery(reservations);
 
     qry->prepare("select start,end,subject from '"+day+"' where faculty = '"+faculty+"' and year = '"+year+"' and semester ='"+semester+"'");
-    qry->exec();
+    if(qry->exec()) {
+        qDebug() << "Routine shown successfully!";
+    }
     routine_modal->setQuery(*qry);
     routine_modal->setHeaderData(0, Qt::Horizontal, QObject::tr("Start"));
     routine_modal->setHeaderData(1, Qt::Horizontal, QObject::tr("End"));
     routine_modal->setHeaderData(2, Qt::Horizontal, QObject::tr("Subject"));
 
+    ui->routine_table->setModel(routine_modal);
+    ui->routine_table->horizontalHeader()->setStretchLastSection(true);
+    ui->routine_table->setColumnWidth(5, 240);
+    ui->routine_table->setColumnWidth(8, 240);
+    ui->routine_table->setSelectionMode(QAbstractItemView::SingleSelection);
+    ui->routine_table->setSelectionBehavior(QAbstractItemView::SelectRows);
     reservationsClose();
 }
 
