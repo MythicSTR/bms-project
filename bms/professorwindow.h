@@ -14,7 +14,7 @@ class professorwindow : public QDialog
     Q_OBJECT
 
     QSqlDatabase reservations;
-
+    QSqlDatabase collegedb;
 
     //to open the database : reservations.db
     bool reservationsOpen() {
@@ -37,6 +37,26 @@ class professorwindow : public QDialog
         reservations.close();
         reservations.removeDatabase("connectionName");
     };
+
+    bool collegedbOpen() {
+       QString path = QDir::currentPath() + "/../bms/data/college.db";
+    //  QString path = "/Users/panda/Documents/project-official/bms-project/bms/data/college.db";
+        collegedb = QSqlDatabase::addDatabase("QSQLITE");
+        collegedb.setDatabaseName(path);
+
+        if(!collegedb.open()) {
+            qDebug() << "Failed to connect to college.db";
+            return false;
+        } else {
+            qDebug() << "Successfully connected to college.db";
+            return true;
+        }
+    }
+
+    void collegedbClose() {
+        collegedb.close();
+        collegedb.removeDatabase("connectionName");
+    }
 
 public:
     explicit professorwindow(QWidget *parent = nullptr, QString prof_username = nullptr);

@@ -17,8 +17,8 @@
    <string notr="true"/>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <layout class="QHBoxLayout" name="horizontalLayout">
-    <item>
+   <layout class="QGridLayout" name="gridLayout_5">
+    <item row="0" column="0">
      <widget class="QTabWidget" name="mainTabWidget">
       <property name="sizePolicy">
        <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
@@ -42,7 +42,7 @@
        <enum>QTabWidget::North</enum>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="tab">
        <attribute name="title">
@@ -158,51 +158,6 @@
                   <item>
                    <property name="text">
                     <string>All</string>
-                   </property>
-                  </item>
-                  <item>
-                   <property name="text">
-                    <string>1</string>
-                   </property>
-                  </item>
-                  <item>
-                   <property name="text">
-                    <string>2</string>
-                   </property>
-                  </item>
-                  <item>
-                   <property name="text">
-                    <string>3</string>
-                   </property>
-                  </item>
-                  <item>
-                   <property name="text">
-                    <string>4</string>
-                   </property>
-                  </item>
-                  <item>
-                   <property name="text">
-                    <string>5</string>
-                   </property>
-                  </item>
-                  <item>
-                   <property name="text">
-                    <string>6</string>
-                   </property>
-                  </item>
-                  <item>
-                   <property name="text">
-                    <string>7</string>
-                   </property>
-                  </item>
-                  <item>
-                   <property name="text">
-                    <string>8</string>
-                   </property>
-                  </item>
-                  <item>
-                   <property name="text">
-                    <string>9</string>
                    </property>
                   </item>
                  </widget>
@@ -429,61 +384,6 @@
                      <height>40</height>
                     </size>
                    </property>
-                   <item>
-                    <property name="text">
-                     <string>1</string>
-                    </property>
-                   </item>
-                   <item>
-                    <property name="text">
-                     <string>2</string>
-                    </property>
-                   </item>
-                   <item>
-                    <property name="text">
-                     <string>3</string>
-                    </property>
-                   </item>
-                   <item>
-                    <property name="text">
-                     <string>4</string>
-                    </property>
-                   </item>
-                   <item>
-                    <property name="text">
-                     <string>5</string>
-                    </property>
-                   </item>
-                   <item>
-                    <property name="text">
-                     <string>6</string>
-                    </property>
-                   </item>
-                   <item>
-                    <property name="text">
-                     <string>7</string>
-                    </property>
-                   </item>
-                   <item>
-                    <property name="text">
-                     <string>8</string>
-                    </property>
-                   </item>
-                   <item>
-                    <property name="text">
-                     <string>9</string>
-                    </property>
-                   </item>
-                   <item>
-                    <property name="text">
-                     <string>10</string>
-                    </property>
-                   </item>
-                   <item>
-                    <property name="text">
-                     <string>11</string>
-                    </property>
-                   </item>
                   </widget>
                  </item>
                 </layout>
@@ -863,56 +763,6 @@
                          <height>40</height>
                         </size>
                        </property>
-                       <item>
-                        <property name="text">
-                         <string>1</string>
-                        </property>
-                       </item>
-                       <item>
-                        <property name="text">
-                         <string>2</string>
-                        </property>
-                       </item>
-                       <item>
-                        <property name="text">
-                         <string>3</string>
-                        </property>
-                       </item>
-                       <item>
-                        <property name="text">
-                         <string>6</string>
-                        </property>
-                       </item>
-                       <item>
-                        <property name="text">
-                         <string>7</string>
-                        </property>
-                       </item>
-                       <item>
-                        <property name="text">
-                         <string>8</string>
-                        </property>
-                       </item>
-                       <item>
-                        <property name="text">
-                         <string>9</string>
-                        </property>
-                       </item>
-                       <item>
-                        <property name="text">
-                         <string>10</string>
-                        </property>
-                       </item>
-                       <item>
-                        <property name="text">
-                         <string>11</string>
-                        </property>
-                       </item>
-                       <item>
-                        <property name="text">
-                         <string>12</string>
-                        </property>
-                       </item>
                       </widget>
                      </item>
                     </layout>
@@ -1170,56 +1020,6 @@
                          <height>40</height>
                         </size>
                        </property>
-                       <item>
-                        <property name="text">
-                         <string>1</string>
-                        </property>
-                       </item>
-                       <item>
-                        <property name="text">
-                         <string>2</string>
-                        </property>
-                       </item>
-                       <item>
-                        <property name="text">
-                         <string>3</string>
-                        </property>
-                       </item>
-                       <item>
-                        <property name="text">
-                         <string>6</string>
-                        </property>
-                       </item>
-                       <item>
-                        <property name="text">
-                         <string>7</string>
-                        </property>
-                       </item>
-                       <item>
-                        <property name="text">
-                         <string>8</string>
-                        </property>
-                       </item>
-                       <item>
-                        <property name="text">
-                         <string>9</string>
-                        </property>
-                       </item>
-                       <item>
-                        <property name="text">
-                         <string>10</string>
-                        </property>
-                       </item>
-                       <item>
-                        <property name="text">
-                         <string>11</string>
-                        </property>
-                       </item>
-                       <item>
-                        <property name="text">
-                         <string>12</string>
-                        </property>
-                       </item>
                       </widget>
                      </item>
                     </layout>
@@ -2537,51 +2337,6 @@
                     <height>40</height>
                    </size>
                   </property>
-                  <item>
-                   <property name="text">
-                    <string>1</string>
-                   </property>
-                  </item>
-                  <item>
-                   <property name="text">
-                    <string>2</string>
-                   </property>
-                  </item>
-                  <item>
-                   <property name="text">
-                    <string>3</string>
-                   </property>
-                  </item>
-                  <item>
-                   <property name="text">
-                    <string>4</string>
-                   </property>
-                  </item>
-                  <item>
-                   <property name="text">
-                    <string>5</string>
-                   </property>
-                  </item>
-                  <item>
-                   <property name="text">
-                    <string>6</string>
-                   </property>
-                  </item>
-                  <item>
-                   <property name="text">
-                    <string>7</string>
-                   </property>
-                  </item>
-                  <item>
-                   <property name="text">
-                    <string>8</string>
-                   </property>
-                  </item>
-                  <item>
-                   <property name="text">
-                    <string>9</string>
-                   </property>
-                  </item>
                  </widget>
                 </item>
                </layout>
