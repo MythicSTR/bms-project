@@ -17,7 +17,7 @@
    </sizepolicy>
   </property>
   <property name="windowTitle">
-   <string>Dialog</string>
+   <string>View Professor</string>
   </property>
   <widget class="QTableView" name="vp_table">
    <property name="geometry">
