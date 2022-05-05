@@ -102,6 +102,8 @@ private slots:
 
     void on_req_delete_clicked();
 
+    void on_pushButton_clicked();
+
 private:
     Ui::MainWindow *ui;
 };
