@@ -147,7 +147,7 @@
               </size>
              </property>
              <property name="styleSheet">
-              <string notr="true">background-color:royalblue ;</string>
+              <string notr="true"/>
              </property>
              <property name="text">
               <string>Log In</string>

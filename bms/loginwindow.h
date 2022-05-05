@@ -11,6 +11,25 @@ QT_END_NAMESPACE
 class LogInWindow : public QMainWindow
 {
     Q_OBJECT
+    QSqlDatabase collegedb;
+    bool collegedbOpen() {
+       QString path = QDir::currentPath() + "/../bms/data/college.db";
+        collegedb = QSqlDatabase::addDatabase("QSQLITE");
+        collegedb.setDatabaseName(path);
+
+        if(!collegedb.open()) {
+            qDebug() << "Failed to connect to college.db";
+            return false;
+        } else {
+            qDebug() << "Successfully connected to college.db";
+            return true;
+        }
+    }
+
+    void collegedbClose() {
+        collegedb.close();
+        collegedb.removeDatabase("connectionName");
+    }
 
 public:
     LogInWindow(QWidget *parent = nullptr, QString username = nullptr);
@@ -18,6 +37,8 @@ public:
 
 private slots:
 void on_pushButton_clicked();
+
+void on_pushButton_2_clicked();
 
 private:
     Ui::LogInWindow *ui;
