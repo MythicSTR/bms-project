@@ -38,7 +38,7 @@ class block : public QDialog
     };
 
     bool collegedbOpen() {
-        QString path = QDir::currentPath() + "/../bms/data/college.db";
+       QString path = QDir::currentPath() + "/../bms/data/college.db";
        // QString path = "/Users/panda/Documents/project-official/bms-project/bms/data/college.db";
         collegedb = QSqlDatabase::addDatabase("QSQLITE");
         collegedb.setDatabaseName(path);

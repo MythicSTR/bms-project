@@ -1,13 +1,14 @@
-#ifndef VIEW_STUDENT_H
-#define VIEW_STUDENT_H
-#include <QtSql>
+#ifndef ADD_FACULTY_H
+#define ADD_FACULTY_H
+
 #include <QDialog>
+#include <QtSql>
 
 namespace Ui {
-class view_student;
+class add_faculty;
 }
 
-class view_student : public QDialog
+class add_faculty : public QDialog
 {
     Q_OBJECT
 
@@ -16,8 +17,8 @@ class view_student : public QDialog
 
     //to open the database : reservations.db
     bool reservationsOpen() {
-       QString path = QDir::currentPath() + "/../bms/data/reservations.db";
-      //  QString path = "/Users/panda/Documents/project-official/bms-project/bms/data/reservations.db";
+      QString path = QDir::currentPath() + "/../bms/data/reservations.db";
+      // QString path = "/Users/panda/Documents/project-official/bms-project/bms/data/reservations.db";
         reservations = QSqlDatabase::addDatabase("QSQLITE");
         reservations.setDatabaseName(path);
 
@@ -37,8 +38,8 @@ class view_student : public QDialog
     };
 
     bool collegedbOpen() {
-       QString path = QDir::currentPath() + "/../bms/data/college.db";
-      // QString path = "/Users/panda/Documents/project-official/bms-project/bms/data/college.db";
+           QString path = QDir::currentPath() + "/../bms/data/college.db";
+     //  QString path = "/Users/panda/Documents/project-official/bms-project/bms/data/college.db";
         collegedb = QSqlDatabase::addDatabase("QSQLITE");
         collegedb.setDatabaseName(path);
 
@@ -57,16 +58,14 @@ class view_student : public QDialog
     }
 
 public:
-    explicit view_student(QWidget *parent = nullptr);
-    ~view_student();
+    explicit add_faculty(QWidget *parent = nullptr);
+    ~add_faculty();
 
 private slots:
-    void on_vs_load_clicked();
-
-    void on_filter_textChanged(const QString &arg1);
+    void on_add_clicked();
 
 private:
-    Ui::view_student *ui;
+    Ui::add_faculty *ui;
 };
 
-#endif // VIEW_STUDENT_H
+#endif // ADD_FACULTY_H

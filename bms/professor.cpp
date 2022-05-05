@@ -25,20 +25,28 @@ void Professor::on_cp_create_clicked()                  //cp -> create professor
     collegedbOpen();
     QSqlQuery qry;
 
-    qry.prepare("insert into professor (name,dept,username,pwd) values ('"+name+"','"+dept+"','"+username+"','"+pwd+"') ");
-    if(qry.exec())
+    if(name.isEmpty()||username.isEmpty()||pwd.isEmpty())
     {
-        QMessageBox::information(this,"Success","Succesfully created account");
+        QMessageBox::warning(this,"Incomplete","Incomplete Information");
     }
+
     else
     {
-        QMessageBox::warning(this,"Failure","Can not store the information in the database");
-    }
-    collegedbClose();
+        qry.prepare("insert into professor (name,dept,username,pwd) values ('"+name+"','"+dept+"','"+username+"','"+pwd+"') ");
+        if(qry.exec())
+        {
+            QMessageBox::information(this,"Success","Succesfully created account");
+        }
+        else
+        {
+            QMessageBox::warning(this,"Failure","Can not store the information in the database");
+        }
+        collegedbClose();
 
-    ui->cp_name->clear();
-    ui->cp_username->clear();
-    ui->cp_pwd->clear();
+        ui->cp_name->clear();
+        ui->cp_username->clear();
+        ui->cp_pwd->clear();
+    }
 }
 
 

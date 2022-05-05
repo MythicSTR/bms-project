@@ -32,3 +32,21 @@ void view_student::on_vs_load_clicked()
 }
 
 
+
+void view_student::on_filter_textChanged(const QString &arg1)
+{
+    QString name = ui->filter->text();
+        collegedbOpen();
+        QSqlQuery qry;
+        QSqlQueryModel *modal = new QSqlQueryModel();
+
+        qry.prepare("select name,username,year,semester,faculty from student where name like '"+name+"%' ");  //searches letter by letter in the database
+        if(qry.exec())
+        {
+            modal->setQuery(qry);
+            ui->vs_table->setModel(modal);
+        }
+
+        collegedbClose();
+}
+

@@ -14,6 +14,10 @@
 #include "view_professor.h"
 #include "view_student.h"
 #include "update_professor.h"
+#include "clear_data.h"
+#include "delete_student.h"
+#include "add_faculty.h"
+#include "add_dept.h"
 
 //check if room is available in given time : from reservations.db
 bool room_available(int a_start, int a_end, int start, int end) {
@@ -779,7 +783,6 @@ void MainWindow::on_req_delete_clicked()
     MainWindow::on_load_request_clicked();
 }
 
-
 void MainWindow::on_pushButton_clicked()
 {
     QString day = ui->dur_day->currentText();
@@ -827,5 +830,36 @@ void MainWindow::on_pushButton_clicked()
     } else {
         QMessageBox::information(this, "Duration", "Failed to change duration the of class.");
     }
+}
+
+void MainWindow::on_pushButton_2_clicked()
+{
+    clear_data cd;
+    cd.setModal(true);
+    cd.exec();
+}
+
+
+void MainWindow::on_delete_student_clicked()
+{
+    delete_student ds;
+      ds.setModal(true);
+      ds.exec();
+}
+
+
+void MainWindow::on_add_faculty_clicked()
+{
+    add_faculty af;
+    af.setModal(true);
+    af.exec();
+}
+
+
+void MainWindow::on_add_dept_clicked()
+{
+    add_dept ad;
+    ad.setModal(true);
+    ad.exec();
 }
 
