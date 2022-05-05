@@ -11,6 +11,7 @@ CONFIG += c++11
 SOURCES += \
     block.cpp \
     clear_data.cpp \
+    delete_student.cpp \
     main.cpp \
     loginwindow.cpp \
     mainwindow.cpp \
@@ -25,6 +26,7 @@ SOURCES += \
 HEADERS += \
     block.h \
     clear_data.h \
+    delete_student.h \
     horizontaltab.h \
     loginwindow.h \
     mainwindow.h \
@@ -39,6 +41,7 @@ HEADERS += \
 FORMS += \
     block.ui \
     clear_data.ui \
+    delete_student.ui \
     loginwindow.ui \
     mainwindow.ui \
     professor.ui \

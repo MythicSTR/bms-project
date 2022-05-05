@@ -1,23 +1,24 @@
-#ifndef STUDENT_H
-#define STUDENT_H
+#ifndef DELETE_STUDENT_H
+#define DELETE_STUDENT_H
 
 #include <QDialog>
 #include <QtSql>
 
 namespace Ui {
-class student;
+class delete_student;
 }
 
-class student : public QDialog
+class delete_student : public QDialog
 {
     Q_OBJECT
+
     QSqlDatabase reservations;
     QSqlDatabase collegedb;
 
     //to open the database : reservations.db
     bool reservationsOpen() {
-       QString path = QDir::currentPath() + "/../bms/data/reservations.db";
-     //  QString path = "/Users/panda/Documents/project-official/bms-project/bms/data/reservations.db";
+        QString path = QDir::currentPath() + "/../bms/data/reservations.db";
+      //  QString path = "/Users/panda/Documents/project-official/bms-project/bms/data/reservations.db";
         reservations = QSqlDatabase::addDatabase("QSQLITE");
         reservations.setDatabaseName(path);
 
@@ -37,8 +38,8 @@ class student : public QDialog
     };
 
     bool collegedbOpen() {
-        QString path = QDir::currentPath() + "/../bms/data/college.db";
-       // QString path = "/Users/panda/Documents/project-official/bms-project/bms/data/college.db";
+         QString path = QDir::currentPath() + "/../bms/data/college.db";
+      // QString path = "/Users/panda/Documents/project-official/bms-project/bms/data/college.db";
         collegedb = QSqlDatabase::addDatabase("QSQLITE");
         collegedb.setDatabaseName(path);
 
@@ -57,17 +58,14 @@ class student : public QDialog
     }
 
 public:
-    explicit student(QWidget *parent = nullptr);
-    ~student();
+    explicit delete_student(QWidget *parent = nullptr);
+    ~delete_student();
 
 private slots:
-
-  void on_cs_create_clicked();
-
-  void on_cs_exit_clicked();
+    void on_delete_2_clicked();
 
 private:
-    Ui::student *ui;
+    Ui::delete_student *ui;
 };
 
-#endif // STUDENT_H
+#endif // DELETE_STUDENT_H

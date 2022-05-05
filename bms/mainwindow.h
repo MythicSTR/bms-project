@@ -104,6 +104,8 @@ private slots:
 
     void on_clear_data_clicked();
 
+    void on_delete_student_clicked();
+
 private:
     Ui::MainWindow *ui;
 };

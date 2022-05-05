@@ -15,6 +15,7 @@
 #include "view_student.h"
 #include "update_professor.h"
 #include "clear_data.h"
+#include "delete_student.h"
 
 //check if room is available in given time : from reservations.db
 bool room_available(int a_start, int a_end, int start, int end) {
@@ -784,5 +785,13 @@ void MainWindow::on_clear_data_clicked()
     clear_data cd;
     cd.setModal(true);
     cd.exec();
+}
+
+
+void MainWindow::on_delete_student_clicked()
+{
+    delete_student ds;
+    ds.setModal(true);
+    ds.exec();
 }
 
