@@ -67,3 +67,9 @@ void LogInWindow::on_pushButton_2_clicked()
     close();
 }
 
+
+void LogInWindow::on_pushButton_2_clicked()
+{
+    QApplication::quit();
+}
+

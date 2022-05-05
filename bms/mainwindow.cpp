@@ -14,6 +14,8 @@
 #include "view_professor.h"
 #include "view_student.h"
 #include "update_professor.h"
+#include "clear_data.h"
+#include "delete_student.h"
 
 //check if room is available in given time : from reservations.db
 bool room_available(int a_start, int a_end, int start, int end) {
@@ -780,52 +782,18 @@ void MainWindow::on_req_delete_clicked()
 }
 
 
+void MainWindow::on_pushButton_2_clicked()
+{
+    clear_data cd;
+    cd.setModal(true);
+    cd.exec();
+}
+
+
 void MainWindow::on_pushButton_clicked()
 {
-    QString day = ui->dur_day->currentText();
-    QString block = ui->dur_block->currentText();
-    QString room = ui->dur_room->text();
-    QString prev_start = ui->dur_prev_start->currentText();
-    QString prev_end = ui->dur_prev_end->currentText();
-    QString new_start = ui->dur_new_start->currentText();
-    QString new_end = ui->dur_new_end->currentText();
-    QString status = "Reserved";
-
-    reservationsOpen();
-    QSqlQuery qry;
-    qry.prepare("select * from '"+day+"' where block='"+block+"' and room = '"+room+"' and start='"+prev_start+"' and end='"+prev_end+"'");
-    bool class_exists = qry.exec();
-    if(class_exists && qry.next()) {
-        QString faculty = qry.value(5).toString();
-        QString year = qry.value(6).toString();
-        QString semester = qry.value(7).toString();
-        QString professor = qry.value(8).toString();
-        QString subject = qry.value(9).toString();
-        qry.prepare("select start,end from '"+day+"' where block='"+block+"' and room='"+room+"'");   //prepare a query to search the reserved room from the database
-        if(qry.exec()) {
-            int check_count = 1;
-            while(qry.next()) {
-                qDebug() << "(" << check_count++ << ")" << "Checking...";
-                int a_start = qry.value(0).toInt();
-                int a_end = qry.value(1).toInt();
-                if(a_start == prev_start.toInt() && a_end == prev_end.toInt())
-                    continue;
-                if(room_available(a_start, a_end, new_start.toInt(), new_end.toInt())) {
-                    continue;
-                } else {
-                    QMessageBox::information(this, "Duration", "Failed to change duration the of class.");
-                    return;
-                }
-            }
-            //if room is available
-            qry.exec("delete from '"+day+"' where block='"+block+"' and room='"+room+"' and start='"+prev_start+"' and end='"+prev_end+"'");
-            qry.prepare("insert into '"+day+"' (block,room,start,end,status,faculty,year,semester,professor,subject) values ('"+block+"','"+room+"','"+new_start+"','"+new_end+"','"+status+"','"+faculty+"','"+year+"','"+semester+"','"+professor+"','"+subject+"')");
-            if(qry.exec()) {
-                qDebug() << "Room available. Writing to the database.";
-            } else qDebug() << "Couldn't execute the query to book the room!";
-        }
-    } else {
-        QMessageBox::information(this, "Duration", "Failed to change duration the of class.");
-    }
+    delete_student ds;
+    ds.setModal(true);
+    ds.exec();
 }
 
