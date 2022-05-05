@@ -40,8 +40,8 @@ class MainWindow : public QMainWindow
     };
 
     bool collegedbOpen() {
-      // QString path = QDir::currentPath() + "/../bms/data/college.db";
-          QString path = "/Users/panda/Documents/project-official/bms-project/bms/data/college.db";
+      QString path = QDir::currentPath() + "/../bms/data/college.db";
+         // QString path = "/Users/panda/Documents/project-official/bms-project/bms/data/college.db";
         collegedb = QSqlDatabase::addDatabase("QSQLITE");
         collegedb.setDatabaseName(path);
 
@@ -104,6 +104,12 @@ private slots:
     void on_pushButton_2_clicked();
 
     void on_pushButton_clicked();
+
+    void on_delete_student_clicked();
+
+    void on_add_faculty_clicked();
+
+    void on_add_dept_clicked();
 
 private:
     Ui::MainWindow *ui;

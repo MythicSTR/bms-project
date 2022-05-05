@@ -9,6 +9,8 @@ CONFIG += c++11
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
 SOURCES += \
+    add_dept.cpp \
+    add_faculty.cpp \
     block.cpp \
     clear_data.cpp \
     delete_student.cpp \
@@ -24,6 +26,8 @@ SOURCES += \
     view_student.cpp
 
 HEADERS += \
+    add_dept.h \
+    add_faculty.h \
     block.h \
     clear_data.h \
     delete_student.h \
@@ -39,6 +43,8 @@ HEADERS += \
     view_student.h
 
 FORMS += \
+    add_dept.ui \
+    add_faculty.ui \
     block.ui \
     clear_data.ui \
     delete_student.ui \

@@ -42,7 +42,7 @@
        <enum>QTabWidget::North</enum>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="tab">
        <attribute name="title">
@@ -2909,18 +2909,12 @@
         <string>Profile</string>
        </attribute>
        <layout class="QGridLayout" name="gridLayout_6">
-        <item row="2" column="0">
-         <widget class="QGroupBox" name="groupBox_9">
-          <property name="sizePolicy">
-           <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
-            <horstretch>0</horstretch>
-            <verstretch>0</verstretch>
-           </sizepolicy>
-          </property>
+        <item row="3" column="0">
+         <widget class="QGroupBox" name="groupBox_10">
           <property name="title">
-           <string>Blocks</string>
+           <string>Student</string>
           </property>
-          <widget class="QPushButton" name="add_block">
+          <widget class="QPushButton" name="view_student">
            <property name="geometry">
             <rect>
              <x>10</x>
@@ -2930,7 +2924,66 @@
             </rect>
            </property>
            <property name="text">
-            <string>Add Block</string>
+            <string>View Student</string>
+           </property>
+          </widget>
+          <widget class="QPushButton" name="add_student">
+           <property name="geometry">
+            <rect>
+             <x>220</x>
+             <y>40</y>
+             <width>171</width>
+             <height>40</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>Add Student</string>
+           </property>
+          </widget>
+          <widget class="QPushButton" name="update_student">
+           <property name="geometry">
+            <rect>
+             <x>440</x>
+             <y>40</y>
+             <width>171</width>
+             <height>40</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>Update Student</string>
+           </property>
+          </widget>
+          <widget class="QPushButton" name="delete_student">
+           <property name="geometry">
+            <rect>
+             <x>650</x>
+             <y>40</y>
+             <width>171</width>
+             <height>40</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>Delete Student</string>
+           </property>
+          </widget>
+         </widget>
+        </item>
+        <item row="4" column="0">
+         <widget class="QGroupBox" name="groupBox_11">
+          <property name="title">
+           <string>Data</string>
+          </property>
+          <widget class="QPushButton" name="pushButton_2">
+           <property name="geometry">
+            <rect>
+             <x>10</x>
+             <y>40</y>
+             <width>171</width>
+             <height>40</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string>Clear Data</string>
            </property>
           </widget>
          </widget>
@@ -3051,12 +3104,18 @@ FONT-COLOR:BLACK;</string>
           </widget>
          </widget>
         </item>
-        <item row="3" column="0">
-         <widget class="QGroupBox" name="groupBox_10">
-          <property name="title">
-           <string>Student</string>
+        <item row="2" column="0">
+         <widget class="QGroupBox" name="groupBox_9">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
           </property>
-          <widget class="QPushButton" name="view_student">
+          <property name="title">
+           <string>Blocks and Department</string>
+          </property>
+          <widget class="QPushButton" name="add_block">
            <property name="geometry">
             <rect>
              <x>10</x>
@@ -3066,10 +3125,10 @@ FONT-COLOR:BLACK;</string>
             </rect>
            </property>
            <property name="text">
-            <string>View Student</string>
+            <string>Add Block</string>
            </property>
           </widget>
-          <widget class="QPushButton" name="add_student">
+          <widget class="QPushButton" name="add_faculty">
            <property name="geometry">
             <rect>
              <x>220</x>
@@ -3079,10 +3138,10 @@ FONT-COLOR:BLACK;</string>
             </rect>
            </property>
            <property name="text">
-            <string>Add Student</string>
+            <string>Add Faculty</string>
            </property>
           </widget>
-          <widget class="QPushButton" name="update_student">
+          <widget class="QPushButton" name="add_dept">
            <property name="geometry">
             <rect>
              <x>440</x>
@@ -3092,40 +3151,7 @@ FONT-COLOR:BLACK;</string>
             </rect>
            </property>
            <property name="text">
-            <string>Update Student</string>
-           </property>
-          </widget>
-          <widget class="QPushButton" name="pushButton">
-           <property name="geometry">
-            <rect>
-             <x>640</x>
-             <y>40</y>
-             <width>171</width>
-             <height>40</height>
-            </rect>
-           </property>
-           <property name="text">
-            <string>Delete Student</string>
-           </property>
-          </widget>
-         </widget>
-        </item>
-        <item row="4" column="0">
-         <widget class="QGroupBox" name="groupBox_11">
-          <property name="title">
-           <string>Data</string>
-          </property>
-          <widget class="QPushButton" name="pushButton_2">
-           <property name="geometry">
-            <rect>
-             <x>10</x>
-             <y>40</y>
-             <width>171</width>
-             <height>40</height>
-            </rect>
-           </property>
-           <property name="text">
-            <string>Clear Data</string>
+            <string>Add Department</string>
            </property>
           </widget>
          </widget>

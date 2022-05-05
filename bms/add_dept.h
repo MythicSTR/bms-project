@@ -1,14 +1,14 @@
-#ifndef CLEAR_DATA_H
-#define CLEAR_DATA_H
+#ifndef ADD_DEPT_H
+#define ADD_DEPT_H
 
 #include <QDialog>
 #include <QtSql>
 
 namespace Ui {
-class clear_data;
+class add_dept;
 }
 
-class clear_data : public QDialog
+class add_dept : public QDialog
 {
     Q_OBJECT
 
@@ -39,7 +39,7 @@ class clear_data : public QDialog
 
     bool collegedbOpen() {
            QString path = QDir::currentPath() + "/../bms/data/college.db";
-     //  QString path = "/Users/panda/Documents/project-official/bms-project/bms/data/college.db";
+      // QString path = "/Users/panda/Documents/project-official/bms-project/bms/data/college.db";
         collegedb = QSqlDatabase::addDatabase("QSQLITE");
         collegedb.setDatabaseName(path);
 
@@ -58,16 +58,14 @@ class clear_data : public QDialog
     }
 
 public:
-    explicit clear_data(QWidget *parent = nullptr);
-    ~clear_data();
+    explicit add_dept(QWidget *parent = nullptr);
+    ~add_dept();
 
 private slots:
-
-
-    void on_clear_clicked();
+    void on_add_clicked();
 
 private:
-    Ui::clear_data *ui;
+    Ui::add_dept *ui;
 };
 
-#endif // CLEAR_DATA_H
+#endif // ADD_DEPT_H
