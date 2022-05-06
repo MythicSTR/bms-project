@@ -36,22 +36,31 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     setWindowTitle("BMS");
     ui->dashboardTabWidget->tabBar()->setStyle(new CustomTabStyle);
+//    ui->dashboardTabWidget->setMinimumHeight(10);
     QFile faculty(":/resources/data/faculty.txt");
     QTextStream faculty_stream(&faculty);
-    QString line;
-    if (faculty.open(QFile::ReadOnly | QFile::Text)) {
-       while (!faculty_stream.atEnd())
-       {
-          line = faculty_stream.readLine();
-          ui->rev_faculty->addItem(line);
-//          ui->profile_register_dept->addItem(line);
-          ui->routine_faculty->addItem(line);
-       }
-       faculty_stream.flush(); faculty.close();
-    }
+//    QString line;
+//    if (faculty.open(QFile::ReadOnly | QFile::Text)) {
+//       while (!faculty_stream.atEnd())
+//       {
+//          line = faculty_stream.readLine();
+//          ui->rev_faculty->addItem(line);
+////          ui->profile_register_dept->addItem(line);
+//          ui->routine_faculty->addItem(line);
+//       }
+//       faculty_stream.flush(); faculty.close();
+//    }
 
     collegedbOpen();
     QSqlQuery qry;
+    qry.prepare("select * from faculty");
+    if(qry.exec()) {
+        while(qry.next()) {
+            ui->rev_faculty->addItem(qry.value(0).toString());
+            ui->routine_faculty->addItem(qry.value(0).toString());
+        }
+    }
+
     qry.prepare("select * from professor");
     if(qry.exec()) {
         while(qry.next()) {
@@ -751,6 +760,17 @@ void MainWindow::on_req_reserve_clicked()
     }
     reservationsClose();    //close the connection to reservations.db
     MainWindow::on_load_request_clicked();
+
+    ui->req_room->setText("");
+    ui->req_faculty->setText("");
+    ui->req_block->setText("");
+    ui->req_year->setText("");
+    ui->req_semester->setText("");
+    ui->req_start->setText("");
+    ui->req_end->setText("");
+    ui->req_professor->setText("");
+    ui->req_subject->setText("");
+    ui->req_day->setText("");
 }
 
 
@@ -781,6 +801,17 @@ void MainWindow::on_req_delete_clicked()
     reservationsClose();
 
     MainWindow::on_load_request_clicked();
+
+    ui->req_room->setText("");
+    ui->req_faculty->setText("");
+    ui->req_block->setText("");
+    ui->req_year->setText("");
+    ui->req_semester->setText("");
+    ui->req_start->setText("");
+    ui->req_end->setText("");
+    ui->req_professor->setText("");
+    ui->req_subject->setText("");
+    ui->req_day->setText("");
 }
 
 void MainWindow::on_pushButton_clicked()
