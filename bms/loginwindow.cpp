@@ -43,8 +43,15 @@ void LogInWindow::on_pushButton_clicked()
         mainwindow->show();
     }
     else if(professor) {
+        QString prof_name;
              this->hide();
-             professorwindow Professorwindow;
+            qry.prepare("select name from professor where username='"+Username+"' and pwd='"+Password+"'");
+            if(qry.exec()) {
+                while(qry.next()) {
+                    prof_name = qry.value(0).toString();
+                }
+            }
+            professorwindow Professorwindow(this, prof_name);
             Professorwindow.setModal(true);
             Professorwindow.exec();
     }

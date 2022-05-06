@@ -12,20 +12,28 @@ professorwindow::professorwindow(QWidget *parent, QString prof_username) :
     ui->setupUi(this);
     QFile faculty(":/resources/data/faculty.txt");
     QTextStream faculty_stream(&faculty);
-    QString line;
-    if (faculty.open(QFile::ReadOnly | QFile::Text)) {
-       while (!faculty_stream.atEnd())
-       {
-          line = faculty_stream.readLine();
-          ui->req_faculty->addItem(line);
-          ui->pw_faculty->addItem(line);
-       }
-       faculty_stream.flush(); faculty.close();
-    }
-
+//    QString line;
+//    if (faculty.open(QFile::ReadOnly | QFile::Text)) {
+//       while (!faculty_stream.atEnd())
+//       {
+//          line = faculty_stream.readLine();
+//          ui->req_faculty->addItem(line);
+//          ui->pw_faculty->addItem(line);
+//       }
+//       faculty_stream.flush(); faculty.close();
+//    }
+    professor = prof_username;
     collegedbOpen();
 
     QSqlQuery qry;
+    qry.prepare("select * from faculty");
+    if(qry.exec()) {
+        while(qry.next()) {
+            ui->req_faculty->addItem(qry.value(0).toString());
+            ui->pw_faculty->addItem(qry.value(0).toString());
+        }
+    }
+
     qry.prepare("select name from professor where username='"+prof_username+"'");
     qry.exec();
     while(qry.next()) {

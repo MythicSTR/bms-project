@@ -42,7 +42,7 @@
        <enum>QTabWidget::North</enum>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="tab">
        <attribute name="title">
@@ -51,6 +51,12 @@
        <layout class="QHBoxLayout" name="horizontalLayout_2">
         <item>
          <widget class="QTabWidget" name="dashboardTabWidget">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
           <property name="styleSheet">
            <string notr="true"/>
           </property>
@@ -867,6 +873,11 @@
                        </property>
                        <item>
                         <property name="text">
+                         <string>6</string>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
                          <string>7</string>
                         </property>
                        </item>
@@ -910,6 +921,26 @@
                          <string>15</string>
                         </property>
                        </item>
+                       <item>
+                        <property name="text">
+                         <string>16</string>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>17</string>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>18</string>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>19</string>
+                        </property>
+                       </item>
                       </widget>
                      </item>
                      <item>
@@ -942,6 +973,11 @@
                          <height>40</height>
                         </size>
                        </property>
+                       <item>
+                        <property name="text">
+                         <string>7</string>
+                        </property>
+                       </item>
                        <item>
                         <property name="text">
                          <string>8</string>
@@ -985,6 +1021,16 @@
                        <item>
                         <property name="text">
                          <string>16</string>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>17</string>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>18</string>
                         </property>
                        </item>
                       </widget>
@@ -1121,6 +1167,11 @@
                        </property>
                        <item>
                         <property name="text">
+                         <string>6</string>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
                          <string>7</string>
                         </property>
                        </item>
@@ -1164,6 +1215,21 @@
                          <string>15</string>
                         </property>
                        </item>
+                       <item>
+                        <property name="text">
+                         <string>16</string>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>17</string>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>18</string>
+                        </property>
+                       </item>
                       </widget>
                      </item>
                      <item>
@@ -1196,6 +1262,11 @@
                          <height>40</height>
                         </size>
                        </property>
+                       <item>
+                        <property name="text">
+                         <string>8</string>
+                        </property>
+                       </item>
                        <item>
                         <property name="text">
                          <string>8</string>
@@ -1239,6 +1310,21 @@
                        <item>
                         <property name="text">
                          <string>16</string>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>17</string>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>18</string>
+                        </property>
+                       </item>
+                       <item>
+                        <property name="text">
+                         <string>19</string>
                         </property>
                        </item>
                       </widget>
@@ -1294,10 +1380,16 @@
                   <item>
                    <widget class="QLineEdit" name="req_faculty">
                     <property name="sizePolicy">
-                     <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+                     <sizepolicy hsizetype="Minimum" vsizetype="Maximum">
                       <horstretch>0</horstretch>
                       <verstretch>0</verstretch>
                      </sizepolicy>
+                    </property>
+                    <property name="minimumSize">
+                     <size>
+                      <width>0</width>
+                      <height>40</height>
+                     </size>
                     </property>
                    </widget>
                   </item>
@@ -1321,10 +1413,16 @@
                   <item>
                    <widget class="QLineEdit" name="req_year">
                     <property name="sizePolicy">
-                     <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+                     <sizepolicy hsizetype="Minimum" vsizetype="Maximum">
                       <horstretch>0</horstretch>
                       <verstretch>0</verstretch>
                      </sizepolicy>
+                    </property>
+                    <property name="minimumSize">
+                     <size>
+                      <width>0</width>
+                      <height>40</height>
+                     </size>
                     </property>
                    </widget>
                   </item>
@@ -1348,10 +1446,16 @@
                   <item>
                    <widget class="QLineEdit" name="req_semester">
                     <property name="sizePolicy">
-                     <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+                     <sizepolicy hsizetype="Minimum" vsizetype="Maximum">
                       <horstretch>0</horstretch>
                       <verstretch>0</verstretch>
                      </sizepolicy>
+                    </property>
+                    <property name="minimumSize">
+                     <size>
+                      <width>0</width>
+                      <height>40</height>
+                     </size>
                     </property>
                    </widget>
                   </item>
@@ -1375,10 +1479,16 @@
                   <item>
                    <widget class="QLineEdit" name="req_day">
                     <property name="sizePolicy">
-                     <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+                     <sizepolicy hsizetype="Minimum" vsizetype="Maximum">
                       <horstretch>0</horstretch>
                       <verstretch>0</verstretch>
                      </sizepolicy>
+                    </property>
+                    <property name="minimumSize">
+                     <size>
+                      <width>0</width>
+                      <height>40</height>
+                     </size>
                     </property>
                    </widget>
                   </item>
@@ -1402,10 +1512,16 @@
                   <item>
                    <widget class="QLineEdit" name="req_start">
                     <property name="sizePolicy">
-                     <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+                     <sizepolicy hsizetype="Minimum" vsizetype="Maximum">
                       <horstretch>0</horstretch>
                       <verstretch>0</verstretch>
                      </sizepolicy>
+                    </property>
+                    <property name="minimumSize">
+                     <size>
+                      <width>0</width>
+                      <height>40</height>
+                     </size>
                     </property>
                    </widget>
                   </item>
@@ -1422,10 +1538,16 @@
                   <item>
                    <widget class="QLineEdit" name="req_end">
                     <property name="sizePolicy">
-                     <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+                     <sizepolicy hsizetype="Minimum" vsizetype="Maximum">
                       <horstretch>0</horstretch>
                       <verstretch>0</verstretch>
                      </sizepolicy>
+                    </property>
+                    <property name="minimumSize">
+                     <size>
+                      <width>0</width>
+                      <height>40</height>
+                     </size>
                     </property>
                    </widget>
                   </item>
@@ -1449,10 +1571,16 @@
                   <item>
                    <widget class="QLineEdit" name="req_block">
                     <property name="sizePolicy">
-                     <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+                     <sizepolicy hsizetype="Minimum" vsizetype="Maximum">
                       <horstretch>0</horstretch>
                       <verstretch>0</verstretch>
                      </sizepolicy>
+                    </property>
+                    <property name="minimumSize">
+                     <size>
+                      <width>0</width>
+                      <height>40</height>
+                     </size>
                     </property>
                    </widget>
                   </item>
@@ -1476,10 +1604,16 @@
                   <item>
                    <widget class="QLineEdit" name="req_room">
                     <property name="sizePolicy">
-                     <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+                     <sizepolicy hsizetype="Minimum" vsizetype="Maximum">
                       <horstretch>0</horstretch>
                       <verstretch>0</verstretch>
                      </sizepolicy>
+                    </property>
+                    <property name="minimumSize">
+                     <size>
+                      <width>0</width>
+                      <height>40</height>
+                     </size>
                     </property>
                    </widget>
                   </item>
@@ -1503,10 +1637,16 @@
                   <item>
                    <widget class="QLineEdit" name="req_subject">
                     <property name="sizePolicy">
-                     <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+                     <sizepolicy hsizetype="Minimum" vsizetype="Maximum">
                       <horstretch>0</horstretch>
                       <verstretch>0</verstretch>
                      </sizepolicy>
+                    </property>
+                    <property name="minimumSize">
+                     <size>
+                      <width>0</width>
+                      <height>40</height>
+                     </size>
                     </property>
                    </widget>
                   </item>
@@ -1538,7 +1678,7 @@
                 <item>
                  <widget class="QLineEdit" name="req_professor">
                   <property name="sizePolicy">
-                   <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+                   <sizepolicy hsizetype="Expanding" vsizetype="Maximum">
                     <horstretch>0</horstretch>
                     <verstretch>0</verstretch>
                    </sizepolicy>
@@ -1546,7 +1686,7 @@
                   <property name="minimumSize">
                    <size>
                     <width>0</width>
-                    <height>50</height>
+                    <height>40</height>
                    </size>
                   </property>
                  </widget>
@@ -1557,6 +1697,18 @@
                <layout class="QHBoxLayout" name="horizontalLayout_40">
                 <item>
                  <widget class="QPushButton" name="req_reserve">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Minimum" vsizetype="Maximum">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                  <property name="minimumSize">
+                   <size>
+                    <width>0</width>
+                    <height>40</height>
+                   </size>
+                  </property>
                   <property name="text">
                    <string>Reserve</string>
                   </property>
@@ -1564,6 +1716,18 @@
                 </item>
                 <item>
                  <widget class="QPushButton" name="req_delete">
+                  <property name="sizePolicy">
+                   <sizepolicy hsizetype="Minimum" vsizetype="Maximum">
+                    <horstretch>0</horstretch>
+                    <verstretch>0</verstretch>
+                   </sizepolicy>
+                  </property>
+                  <property name="minimumSize">
+                   <size>
+                    <width>0</width>
+                    <height>40</height>
+                   </size>
+                  </property>
                   <property name="text">
                    <string>Delete</string>
                   </property>
@@ -1646,6 +1810,31 @@
                      <item>
                       <property name="text">
                        <string>Sunday</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text">
+                       <string>Monday</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text">
+                       <string>Tuesday</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text">
+                       <string>Wednesday</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text">
+                       <string>Thursday</string>
+                      </property>
+                     </item>
+                     <item>
+                      <property name="text">
+                       <string>Friday</string>
                       </property>
                      </item>
                     </widget>
