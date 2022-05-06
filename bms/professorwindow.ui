@@ -42,7 +42,7 @@
           <enum>QTabWidget::West</enum>
          </property>
          <property name="currentIndex">
-          <number>2</number>
+          <number>0</number>
          </property>
          <widget class="QWidget" name="tab_2">
           <attribute name="title">
@@ -587,7 +587,20 @@
                 </widget>
                </item>
                <item>
-                <widget class="QComboBox" name="req_faculty"/>
+                <widget class="QComboBox" name="req_faculty">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="minimumSize">
+                  <size>
+                   <width>300</width>
+                   <height>40</height>
+                  </size>
+                 </property>
+                </widget>
                </item>
               </layout>
              </item>
@@ -601,7 +614,20 @@
                 </widget>
                </item>
                <item>
-                <widget class="QComboBox" name="req_year"/>
+                <widget class="QComboBox" name="req_year">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="minimumSize">
+                  <size>
+                   <width>300</width>
+                   <height>40</height>
+                  </size>
+                 </property>
+                </widget>
                </item>
               </layout>
              </item>
@@ -615,7 +641,20 @@
                 </widget>
                </item>
                <item>
-                <widget class="QComboBox" name="req_semester"/>
+                <widget class="QComboBox" name="req_semester">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="minimumSize">
+                  <size>
+                   <width>300</width>
+                   <height>40</height>
+                  </size>
+                 </property>
+                </widget>
                </item>
               </layout>
              </item>
@@ -629,7 +668,20 @@
                 </widget>
                </item>
                <item>
-                <widget class="QComboBox" name="req_day"/>
+                <widget class="QComboBox" name="req_day">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="minimumSize">
+                  <size>
+                   <width>300</width>
+                   <height>40</height>
+                  </size>
+                 </property>
+                </widget>
                </item>
               </layout>
              </item>
@@ -643,17 +695,58 @@
                 </widget>
                </item>
                <item>
-                <widget class="QComboBox" name="req_start_time"/>
-               </item>
-               <item>
-                <widget class="QLabel" name="label_14">
-                 <property name="text">
-                  <string>to</string>
+                <widget class="QComboBox" name="req_start_time">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="minimumSize">
+                  <size>
+                   <width>120</width>
+                   <height>40</height>
+                  </size>
                  </property>
                 </widget>
                </item>
                <item>
-                <widget class="QComboBox" name="req_end_time"/>
+                <widget class="QLabel" name="label_14">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Maximum" vsizetype="Preferred">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="minimumSize">
+                  <size>
+                   <width>40</width>
+                   <height>0</height>
+                  </size>
+                 </property>
+                 <property name="text">
+                  <string>to</string>
+                 </property>
+                 <property name="alignment">
+                  <set>Qt::AlignCenter</set>
+                 </property>
+                </widget>
+               </item>
+               <item>
+                <widget class="QComboBox" name="req_end_time">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Maximum" vsizetype="Fixed">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="minimumSize">
+                  <size>
+                   <width>120</width>
+                   <height>40</height>
+                  </size>
+                 </property>
+                </widget>
                </item>
               </layout>
              </item>
@@ -667,7 +760,20 @@
                 </widget>
                </item>
                <item>
-                <widget class="QComboBox" name="req_block"/>
+                <widget class="QComboBox" name="req_block">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="minimumSize">
+                  <size>
+                   <width>300</width>
+                   <height>40</height>
+                  </size>
+                 </property>
+                </widget>
                </item>
               </layout>
              </item>
@@ -681,7 +787,20 @@
                 </widget>
                </item>
                <item>
-                <widget class="QLineEdit" name="req_room"/>
+                <widget class="QLineEdit" name="req_room">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="minimumSize">
+                  <size>
+                   <width>300</width>
+                   <height>40</height>
+                  </size>
+                 </property>
+                </widget>
                </item>
               </layout>
              </item>
@@ -695,7 +814,20 @@
                 </widget>
                </item>
                <item>
-                <widget class="QLineEdit" name="req_subject"/>
+                <widget class="QLineEdit" name="req_subject">
+                 <property name="sizePolicy">
+                  <sizepolicy hsizetype="Maximum" vsizetype="Maximum">
+                   <horstretch>0</horstretch>
+                   <verstretch>0</verstretch>
+                  </sizepolicy>
+                 </property>
+                 <property name="minimumSize">
+                  <size>
+                   <width>300</width>
+                   <height>40</height>
+                  </size>
+                 </property>
+                </widget>
                </item>
               </layout>
              </item>
